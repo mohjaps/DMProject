@@ -34,8 +34,6 @@ namespace DMProject
             this.panelDesktop.Controls.Add(childForm);
             this.panelDesktop.Tag = childForm;
             childForm.BringToFront();
-            //Color color = SelectThemeColor();
-            //childForm.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
             childForm.Show();
             lblTitle.Text = childForm.Text;
         }

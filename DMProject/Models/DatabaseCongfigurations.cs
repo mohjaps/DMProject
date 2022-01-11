@@ -63,9 +63,9 @@ namespace DMProject.Models
                     {
                         Username = reader["Username"].ToString(),
                         Name = reader["Name"].ToString(),
-                        Age = int.Parse(reader["Name"].ToString()),
-                        Score = int.Parse(reader["Name"].ToString()),
-                        LastLogin = DateTime.Parse(reader["Name"].ToString()),
+                        Age = int.Parse(reader["Age"].ToString()),
+                        Score = int.Parse(reader["Score"].ToString()),
+                        LastLogin = DateTime.Parse(reader["LastLogin"].ToString()),
                     };
                     Players.Add(admin);
                 }

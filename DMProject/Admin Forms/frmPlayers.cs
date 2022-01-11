@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DMProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace DMProject.Forms
         public frmProducts()
         {
             InitializeComponent();
+        }
+
+        private void frmProducts_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                guna2DataGridView1.DataSource = DatabaseCongfigurations.GetPlayers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
