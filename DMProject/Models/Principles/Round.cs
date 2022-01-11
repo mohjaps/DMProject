@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace DMProject.Models.Principles
 {
-    internal class Player
+    internal class Round
     {
-        public string Username { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
+        public int Id { get; set; }
+        public int PlayerUsername { get; set; }
         public int Score { get; set; }
-        public DateTime LastLogin { get; set; }
+        public int RoundDateTime { get; set; }
     }
 }

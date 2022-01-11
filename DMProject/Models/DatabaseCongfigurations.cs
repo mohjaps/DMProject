@@ -16,12 +16,12 @@ namespace DMProject.Models
             return new SqlConnection("Data Source=.;Initial Catalog=FinalProejct;Integrated Security=True");
         }
         //Returns An Admin
-        public static Admin GetAdmin(int id)
+        public static Admin GetAdmin(string username)
         {
             SqlConnection conn = Connection();
-            string cmm = "Select Id, Username, Password From Admins Where Id = @Id";
+            string cmm = "Select Username, Password From Admins Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
-            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@Username", username);
             try
             {
                 conn.Open();
@@ -30,7 +30,6 @@ namespace DMProject.Models
                 {
                     Admin admin = new Admin()
                     {
-                        Id = int.Parse(reader["Id"].ToString()),
                         Username = reader["Username"].ToString(),
                         Password = reader["Password"].ToString()
                     };
@@ -40,7 +39,7 @@ namespace DMProject.Models
             }
             catch (SqlException ex)
             {
-                throw ex;
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -51,7 +50,7 @@ namespace DMProject.Models
         public static List<Player> GetPlayers()
         {
             SqlConnection conn = Connection();
-            string cmm = "Select Id, Name, Age, Score, LastLogin From Players";
+            string cmm = "Select Username, Name, Age, Score, LastLogin From Players";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             try
             {
@@ -62,7 +61,7 @@ namespace DMProject.Models
                 {
                     Player admin = new Player()
                     {
-                        Id = int.Parse(reader["Id"].ToString()),
+                        Username = reader["Username"].ToString(),
                         Name = reader["Name"].ToString(),
                         Age = int.Parse(reader["Name"].ToString()),
                         Score = int.Parse(reader["Name"].ToString()),
@@ -74,7 +73,7 @@ namespace DMProject.Models
             }
             catch (SqlException ex)
             {
-                throw ex;
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -82,12 +81,12 @@ namespace DMProject.Models
             }
         }
         //Returns A Player
-        public static Player GetPlayer(int id)
+        public static Player GetPlayer(string username)
         {
             SqlConnection conn = Connection();
-            string cmm = "Select Id, Name, Age, Score, LastLogin From Players Where Id = @Id";
+            string cmm = "Select Username, Name, Age, Score, LastLogin From Players Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
-            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@Username", username);
             try
             {
                 conn.Open();
@@ -96,11 +95,11 @@ namespace DMProject.Models
                 {
                     Player playerPlus = new Player()
                     {
-                        Id = int.Parse(reader["Id"].ToString()),
+                        Username = reader["Username"].ToString(),
                         Name = reader["Name"].ToString(),
-                        Age = int.Parse(reader["Name"].ToString()),
-                        Score = int.Parse(reader["Name"].ToString()),
-                        LastLogin = DateTime.Parse(reader["Name"].ToString()),
+                        Age = int.Parse(reader["Age"].ToString()),
+                        Score = int.Parse(reader["Score"].ToString()),
+                        LastLogin = DateTime.Parse(reader["LastLogin"].ToString()),
                     };
                     return playerPlus;
                 }
@@ -108,7 +107,7 @@ namespace DMProject.Models
             }
             catch (SqlException ex)
             {
-                throw ex;
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -119,10 +118,11 @@ namespace DMProject.Models
         public static int AddPlayer(Player player)
         {
             SqlConnection conn = Connection();
-            string cmm = "Insert Into Players (Name, Age) Values (@Name, @Age)";
+            string cmm = "Insert Into Players (Username, Name, Age) Values (@Username, @Name, @Age)";
             SqlCommand cmd = new SqlCommand(cmm, conn);
+            cmd.Parameters.AddWithValue("@Username", player.Username);
             cmd.Parameters.AddWithValue("@Name", player.Name);
-            cmd.Parameters.AddWithValue("@Age", player.Name);
+            cmd.Parameters.AddWithValue("@Age", player.Age);
             try
             {
                 conn.Open();
@@ -131,7 +131,7 @@ namespace DMProject.Models
             }
             catch (SqlException ex)
             {
-                throw ex;
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -139,12 +139,12 @@ namespace DMProject.Models
             }
         }
         //Deletes A Player
-        public static int DeletePlayer(int Id)
+        public static int DeletePlayer(string Username)
         {
             SqlConnection conn = Connection();
-            string cmm = "Delete From Players Where Id = @Id";
+            string cmm = "Delete From Players Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
-            cmd.Parameters.AddWithValue("@Id", Id);
+            cmd.Parameters.AddWithValue("@Username", Username);
             try
             {
                 conn.Open();
@@ -153,7 +153,7 @@ namespace DMProject.Models
             }
             catch (SqlException ex)
             {
-                throw ex;
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -164,9 +164,9 @@ namespace DMProject.Models
         public static int UpdatePlayer(Player player)
         {
             SqlConnection conn = Connection();
-            string cmm = "Update Players Set Score = @Score, LastLogin = @LastLogin Where Id = @Id";
+            string cmm = "Update Players Set Score = @Score, LastLogin = @LastLogin Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
-            cmd.Parameters.AddWithValue("@Id", player.Id);
+            cmd.Parameters.AddWithValue("@Username", player.Username);
             cmd.Parameters.AddWithValue("@Score", player.Score);
             cmd.Parameters.AddWithValue("@LastLogin", player.LastLogin);
             try
@@ -177,7 +177,31 @@ namespace DMProject.Models
             }
             catch (SqlException ex)
             {
-                throw ex;
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        //Inserts A Round
+        public static int AddRound(Round round)
+        {
+            SqlConnection conn = Connection();
+            string cmm = "Insert Into Rounds (PlayerUsername, Score, RoundDateTime) Values (@PlayerUsername, @Score, @RoundDateTime)";
+            SqlCommand cmd = new SqlCommand(cmm, conn);
+            cmd.Parameters.AddWithValue("@PlayerUsername", round.PlayerUsername);
+            cmd.Parameters.AddWithValue("@Score", round.Score);
+            cmd.Parameters.AddWithValue("@RoundDateTime", round.RoundDateTime);
+            try
+            {
+                conn.Open();
+                int result = cmd.ExecuteNonQuery();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
             }
             finally
             {

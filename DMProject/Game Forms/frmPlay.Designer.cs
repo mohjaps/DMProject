@@ -315,6 +315,7 @@
             this.Controls.Add(this.lblQuestionsCount);
             this.Controls.Add(this.btnNext);
             this.Name = "frmPlay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPlay";
             this.Load += new System.EventHandler(this.frmPlay_Load);
             this.ResumeLayout(false);

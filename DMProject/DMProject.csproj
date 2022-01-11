@@ -78,17 +78,17 @@
     <Compile Include="Admin Forms\frmNotifications.Designer.cs">
       <DependentUpon>frmNotifications.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin Forms\frmOrders.cs">
+    <Compile Include="Admin Forms\frmRounds.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin Forms\frmOrders.Designer.cs">
-      <DependentUpon>frmOrders.cs</DependentUpon>
+    <Compile Include="Admin Forms\frmRounds.Designer.cs">
+      <DependentUpon>frmRounds.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin Forms\frmProducts.cs">
+    <Compile Include="Admin Forms\frmPlayers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin Forms\frmProducts.Designer.cs">
-      <DependentUpon>frmProducts.cs</DependentUpon>
+    <Compile Include="Admin Forms\frmPlayers.Designer.cs">
+      <DependentUpon>frmPlayers.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin Forms\frmReporting.cs">
       <SubType>Form</SubType>
@@ -114,13 +114,26 @@
     <Compile Include="Game Forms\HomePlay.Designer.cs">
       <DependentUpon>HomePlay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game Forms\Login.cs">
+    <Compile Include="Admin Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game Forms\Login.Designer.cs">
+    <Compile Include="Admin Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game Forms\PlayerLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game Forms\PlayerLogin.Designer.cs">
+      <DependentUpon>PlayerLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game Forms\Start.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game Forms\Start.Designer.cs">
+      <DependentUpon>Start.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DatabaseCongfigurations.cs" />
+    <Compile Include="Models\Principles\Round.cs" />
     <Compile Include="Models\Principles\Player.cs" />
     <Compile Include="Models\Principles\Admin.cs" />
     <Compile Include="Models\Questions.cs" />
@@ -137,11 +150,11 @@
     <EmbeddedResource Include="Admin Forms\frmNotifications.resx">
       <DependentUpon>frmNotifications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin Forms\frmOrders.resx">
-      <DependentUpon>frmOrders.cs</DependentUpon>
+    <EmbeddedResource Include="Admin Forms\frmRounds.resx">
+      <DependentUpon>frmRounds.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin Forms\frmProducts.resx">
-      <DependentUpon>frmProducts.cs</DependentUpon>
+    <EmbeddedResource Include="Admin Forms\frmPlayers.resx">
+      <DependentUpon>frmPlayers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin Forms\frmReporting.resx">
       <DependentUpon>frmReporting.cs</DependentUpon>
@@ -155,8 +168,14 @@
     <EmbeddedResource Include="Game Forms\HomePlay.resx">
       <DependentUpon>HomePlay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game Forms\Login.resx">
+    <EmbeddedResource Include="Admin Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game Forms\PlayerLogin.resx">
+      <DependentUpon>PlayerLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game Forms\Start.resx">
+      <DependentUpon>Start.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

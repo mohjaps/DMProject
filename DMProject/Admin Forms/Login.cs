@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DMProject.Models;
+using DMProject.Models.Principles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,13 +44,25 @@ namespace DMProject.Game_Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtLogin.Text.Trim().ToLower() == "admin" && txtLogin.Text.Trim().ToLower() == "admin")
+            try
             {
-                this.Hide();
-                new HomePlay().ShowDialog();
-                this.Show();
+                Admin admin = DatabaseCongfigurations.GetAdmin(txtLogin.Text);
+                if (admin != null && txtLogin.Text.Trim() == admin.Username)
+                {
+                    if (txtPassword.Text.Trim() == admin.Password)
+                    {
+                        this.Hide();
+                        new FormMainMenue().ShowDialog();
+                        this.Show();
+                    }
+                    else MessageBox.Show("Password Is Wrong...", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else MessageBox.Show("Account Is Not Existed...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else MessageBox.Show("Password Is Wrong...");
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "An Error Has Occured...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Login_KeyPress(object sender, KeyPressEventArgs e)
@@ -69,6 +83,11 @@ namespace DMProject.Game_Forms
             {
                 btnLogin.PerformClick();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

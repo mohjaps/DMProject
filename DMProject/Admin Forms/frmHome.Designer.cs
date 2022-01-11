@@ -161,7 +161,7 @@
             this.btnOrders.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnOrders.Size = new System.Drawing.Size(220, 60);
             this.btnOrders.TabIndex = 2;
-            this.btnOrders.Text = "       Orders";
+            this.btnOrders.Text = "       Rounds";
             this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOrders.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             this.btnProducts.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnProducts.Size = new System.Drawing.Size(220, 60);
             this.btnProducts.TabIndex = 1;
-            this.btnProducts.Text = "       Products";
+            this.btnProducts.Text = "       Players";
             this.btnProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProducts.UseVisualStyleBackColor = true;
@@ -249,6 +249,7 @@
             this.Controls.Add(this.panelTitleBox);
             this.Controls.Add(this.panelMenue);
             this.Name = "FormMainMenue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelMenue.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);

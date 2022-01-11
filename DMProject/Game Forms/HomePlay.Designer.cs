@@ -39,6 +39,9 @@
             this.btnQuestion7 = new System.Windows.Forms.Button();
             this.btnQuestion10 = new System.Windows.Forms.Button();
             this.btnGo = new System.Windows.Forms.Button();
+            this.lblHello = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblLastLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnQuestion6
@@ -46,7 +49,7 @@
             this.btnQuestion6.BackColor = System.Drawing.Color.White;
             this.btnQuestion6.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion6.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion6.Location = new System.Drawing.Point(346, 436);
+            this.btnQuestion6.Location = new System.Drawing.Point(322, 566);
             this.btnQuestion6.Name = "btnQuestion6";
             this.btnQuestion6.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion6.TabIndex = 4;
@@ -59,7 +62,7 @@
             this.btnQuestion5.BackColor = System.Drawing.Color.White;
             this.btnQuestion5.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion5.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion5.Location = new System.Drawing.Point(346, 174);
+            this.btnQuestion5.Location = new System.Drawing.Point(322, 304);
             this.btnQuestion5.Name = "btnQuestion5";
             this.btnQuestion5.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion5.TabIndex = 5;
@@ -72,7 +75,7 @@
             this.btnQuestion4.BackColor = System.Drawing.Color.White;
             this.btnQuestion4.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion4.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion4.Location = new System.Drawing.Point(162, 174);
+            this.btnQuestion4.Location = new System.Drawing.Point(138, 304);
             this.btnQuestion4.Name = "btnQuestion4";
             this.btnQuestion4.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion4.TabIndex = 6;
@@ -85,7 +88,7 @@
             this.btnQuestion3.BackColor = System.Drawing.Color.White;
             this.btnQuestion3.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion3.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion3.Location = new System.Drawing.Point(518, 45);
+            this.btnQuestion3.Location = new System.Drawing.Point(494, 175);
             this.btnQuestion3.Name = "btnQuestion3";
             this.btnQuestion3.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion3.TabIndex = 7;
@@ -98,7 +101,7 @@
             this.btnQuestion2.BackColor = System.Drawing.Color.White;
             this.btnQuestion2.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion2.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion2.Location = new System.Drawing.Point(346, 45);
+            this.btnQuestion2.Location = new System.Drawing.Point(322, 175);
             this.btnQuestion2.Name = "btnQuestion2";
             this.btnQuestion2.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion2.TabIndex = 8;
@@ -112,7 +115,7 @@
             this.btnQuestion1.FlatAppearance.BorderSize = 0;
             this.btnQuestion1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion1.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion1.Location = new System.Drawing.Point(162, 45);
+            this.btnQuestion1.Location = new System.Drawing.Point(138, 175);
             this.btnQuestion1.Name = "btnQuestion1";
             this.btnQuestion1.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion1.TabIndex = 9;
@@ -125,7 +128,7 @@
             this.btnQuestion9.BackColor = System.Drawing.Color.White;
             this.btnQuestion9.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion9.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion9.Location = new System.Drawing.Point(162, 305);
+            this.btnQuestion9.Location = new System.Drawing.Point(138, 435);
             this.btnQuestion9.Name = "btnQuestion9";
             this.btnQuestion9.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion9.TabIndex = 13;
@@ -138,7 +141,7 @@
             this.btnQuestion8.BackColor = System.Drawing.Color.White;
             this.btnQuestion8.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion8.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion8.Location = new System.Drawing.Point(346, 305);
+            this.btnQuestion8.Location = new System.Drawing.Point(322, 435);
             this.btnQuestion8.Name = "btnQuestion8";
             this.btnQuestion8.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion8.TabIndex = 12;
@@ -151,7 +154,7 @@
             this.btnQuestion7.BackColor = System.Drawing.Color.White;
             this.btnQuestion7.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion7.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion7.Location = new System.Drawing.Point(518, 305);
+            this.btnQuestion7.Location = new System.Drawing.Point(494, 435);
             this.btnQuestion7.Name = "btnQuestion7";
             this.btnQuestion7.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion7.TabIndex = 11;
@@ -164,7 +167,7 @@
             this.btnQuestion10.BackColor = System.Drawing.Color.White;
             this.btnQuestion10.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnQuestion10.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnQuestion10.Location = new System.Drawing.Point(518, 174);
+            this.btnQuestion10.Location = new System.Drawing.Point(494, 304);
             this.btnQuestion10.Name = "btnQuestion10";
             this.btnQuestion10.Size = new System.Drawing.Size(143, 109);
             this.btnQuestion10.TabIndex = 10;
@@ -177,7 +180,7 @@
             this.btnGo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnGo.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.btnGo.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnGo.Location = new System.Drawing.Point(668, 469);
+            this.btnGo.Location = new System.Drawing.Point(668, 589);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(143, 109);
             this.btnGo.TabIndex = 14;
@@ -185,12 +188,45 @@
             this.btnGo.UseVisualStyleBackColor = false;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
+            // lblHello
+            // 
+            this.lblHello.AutoSize = true;
+            this.lblHello.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblHello.Location = new System.Drawing.Point(26, 20);
+            this.lblHello.Name = "lblHello";
+            this.lblHello.Size = new System.Drawing.Size(69, 24);
+            this.lblHello.TabIndex = 15;
+            this.lblHello.Text = "Hello: ";
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblScore.Location = new System.Drawing.Point(26, 59);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(72, 24);
+            this.lblScore.TabIndex = 16;
+            this.lblScore.Text = "Score: ";
+            // 
+            // lblLastLogin
+            // 
+            this.lblLastLogin.AutoSize = true;
+            this.lblLastLogin.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblLastLogin.Location = new System.Drawing.Point(26, 98);
+            this.lblLastLogin.Name = "lblLastLogin";
+            this.lblLastLogin.Size = new System.Drawing.Size(114, 24);
+            this.lblLastLogin.TabIndex = 17;
+            this.lblLastLogin.Text = "Last Login: ";
+            // 
             // HomePlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(823, 590);
+            this.ClientSize = new System.Drawing.Size(823, 710);
+            this.Controls.Add(this.lblLastLogin);
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.lblHello);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.btnQuestion9);
             this.Controls.Add(this.btnQuestion8);
@@ -203,9 +239,11 @@
             this.Controls.Add(this.btnQuestion5);
             this.Controls.Add(this.btnQuestion6);
             this.Name = "HomePlay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choose A Table ...";
             this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -221,5 +259,8 @@
         private System.Windows.Forms.Button btnQuestion7;
         private System.Windows.Forms.Button btnQuestion10;
         private System.Windows.Forms.Button btnGo;
+        private System.Windows.Forms.Label lblHello;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label lblLastLogin;
     }
 }
