@@ -1,6 +1,8 @@
 ﻿using DMProject.Models.Principles;
+using DMProject.Models.View_Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -245,6 +247,39 @@ namespace DMProject.Models
                 SqlDataReader reader = sqlCommand.ExecuteReader();
                 if (reader.Read())
                     result = int.Parse(reader["Sum"].ToString());
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        
+        public static BindingList<RoundView> GetRoundView()
+        {
+            string comm = "Select Name, \"Number Of Questions\", \"Round Score\", \"Total Time Consumed\", \"Round Time\"From ShowRounds";
+            SqlCommand sqlCommand = new SqlCommand(comm, conn);
+            try
+            {
+                conn.Open();
+                BindingList<RoundView> result = new BindingList<RoundView>();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    RoundView RV = new RoundView()
+                    {
+                        Name = reader["Name"].ToString(),
+                        totalQuestions = int.Parse(reader["Number Of Questions"].ToString()),
+                        RoundScore = reader["Round Score"].ToString(),
+                        TotalTimeConsumed = reader["Total Time Consumed"].ToString(),
+                        RoundDateTime = DateTime.Parse(reader["Round Time"].ToString()),
+                    };
+                    result.Add(RV);
+                }
                 return result;
             }
             catch (SqlException ex)

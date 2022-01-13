@@ -32,19 +32,19 @@
             this.radioBtnExixtedPlayer = new Guna.UI2.WinForms.Guna2RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.gboxNew = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.gboxLogin = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.txtUsernameLogin = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtAge = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.gboxLogin = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtUsernameLogin = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.gboxNew.SuspendLayout();
-            this.gboxLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAge)).BeginInit();
+            this.gboxLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioBtnNew
@@ -113,55 +113,6 @@
             this.gboxNew.Size = new System.Drawing.Size(730, 296);
             this.gboxNew.TabIndex = 6;
             this.gboxNew.Text = "New Player";
-            // 
-            // gboxLogin
-            // 
-            this.gboxLogin.Controls.Add(this.txtUsernameLogin);
-            this.gboxLogin.Controls.Add(this.label7);
-            this.gboxLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gboxLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.gboxLogin.Location = new System.Drawing.Point(38, 97);
-            this.gboxLogin.Name = "gboxLogin";
-            this.gboxLogin.ShadowDecoration.Parent = this.gboxLogin;
-            this.gboxLogin.Size = new System.Drawing.Size(730, 296);
-            this.gboxLogin.TabIndex = 7;
-            this.gboxLogin.Text = "Login Player";
-            // 
-            // txtUsernameLogin
-            // 
-            this.txtUsernameLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUsernameLogin.DefaultText = "";
-            this.txtUsernameLogin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtUsernameLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtUsernameLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsernameLogin.DisabledState.Parent = this.txtUsernameLogin;
-            this.txtUsernameLogin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsernameLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsernameLogin.FocusedState.Parent = this.txtUsernameLogin;
-            this.txtUsernameLogin.Font = new System.Drawing.Font("Segoe Print", 10F);
-            this.txtUsernameLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsernameLogin.HoverState.Parent = this.txtUsernameLogin;
-            this.txtUsernameLogin.Location = new System.Drawing.Point(218, 133);
-            this.txtUsernameLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtUsernameLogin.Name = "txtUsernameLogin";
-            this.txtUsernameLogin.PasswordChar = '\0';
-            this.txtUsernameLogin.PlaceholderText = "";
-            this.txtUsernameLogin.SelectedText = "";
-            this.txtUsernameLogin.ShadowDecoration.Parent = this.txtUsernameLogin;
-            this.txtUsernameLogin.Size = new System.Drawing.Size(440, 33);
-            this.txtUsernameLogin.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe Print", 12F);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(72, 131);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 35);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Username";
             // 
             // label5
             // 
@@ -277,6 +228,55 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
+            // gboxLogin
+            // 
+            this.gboxLogin.Controls.Add(this.txtUsernameLogin);
+            this.gboxLogin.Controls.Add(this.label7);
+            this.gboxLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gboxLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.gboxLogin.Location = new System.Drawing.Point(38, 97);
+            this.gboxLogin.Name = "gboxLogin";
+            this.gboxLogin.ShadowDecoration.Parent = this.gboxLogin;
+            this.gboxLogin.Size = new System.Drawing.Size(730, 296);
+            this.gboxLogin.TabIndex = 7;
+            this.gboxLogin.Text = "Login Player";
+            // 
+            // txtUsernameLogin
+            // 
+            this.txtUsernameLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsernameLogin.DefaultText = "";
+            this.txtUsernameLogin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUsernameLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUsernameLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsernameLogin.DisabledState.Parent = this.txtUsernameLogin;
+            this.txtUsernameLogin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsernameLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUsernameLogin.FocusedState.Parent = this.txtUsernameLogin;
+            this.txtUsernameLogin.Font = new System.Drawing.Font("Segoe Print", 10F);
+            this.txtUsernameLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUsernameLogin.HoverState.Parent = this.txtUsernameLogin;
+            this.txtUsernameLogin.Location = new System.Drawing.Point(218, 133);
+            this.txtUsernameLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsernameLogin.Name = "txtUsernameLogin";
+            this.txtUsernameLogin.PasswordChar = '\0';
+            this.txtUsernameLogin.PlaceholderText = "";
+            this.txtUsernameLogin.SelectedText = "";
+            this.txtUsernameLogin.ShadowDecoration.Parent = this.txtUsernameLogin;
+            this.txtUsernameLogin.Size = new System.Drawing.Size(440, 33);
+            this.txtUsernameLogin.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe Print", 12F);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(72, 131);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(115, 35);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Username";
+            // 
             // guna2CircleButton1
             // 
             this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
@@ -312,15 +312,16 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radioBtnExixtedPlayer);
             this.Controls.Add(this.radioBtnNew);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PlayerLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayerLogin";
             this.Load += new System.EventHandler(this.PlayerLogin_Load);
             this.gboxNew.ResumeLayout(false);
             this.gboxNew.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAge)).EndInit();
             this.gboxLogin.ResumeLayout(false);
             this.gboxLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

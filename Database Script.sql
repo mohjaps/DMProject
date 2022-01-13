@@ -1,4 +1,6 @@
 Create Database FinalProejct
+Drop Database FinalProejct
+
 Go 
 Create Table Admins
 (
@@ -12,7 +14,7 @@ Create Table Players
 	Name VarChar(50) Not Null,
 	Age Int Not Null,
 	Score Int Default 0,
-	LastLogin DateTime Default '0001, 01, 01',
+	LastLogin DateTime Default GetDate(),
 )
 
 Create Table Rounds
@@ -29,3 +31,4 @@ Create Table Rounds
 	RoundDateTime DateTime Default GetDate(),
 	Constraint FK_Players_Rounds Foreign Key (PlayerUsername) References Players(Username)
 )
+

@@ -285,6 +285,7 @@
             this.Controls.Add(this.btnQuestion4);
             this.Controls.Add(this.btnQuestion5);
             this.Controls.Add(this.btnQuestion6);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HomePlay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choose A Table ...";

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,7 @@ namespace DMProject.Game_Forms
         int totalTime = -1;
         string username = "";
         DateTime StartTime = DateTime.Now;
-
+        SoundPlayer SP = new SoundPlayer();
         //Enum Operations = new Enum();
         public frmPlay()
         {
@@ -151,11 +152,15 @@ namespace DMProject.Game_Forms
                 bool isCorrect = (btnAnswer.Text == answerKey.ToString());
                 if (isCorrect)
                 {
+                    SP.SoundLocation = "Sounds/Correct.wav";
+                    SP.Play();
                     MessageBox.Show("Answer Is Correct");
                     correct++;
                 }
                 else
                 {
+                    SP.SoundLocation = "Sounds/Lose.wav";
+                    SP.Play();
                     MessageBox.Show("Answer Is Wrong");
                     wrong++;
                 }

@@ -139,6 +139,7 @@
     <Compile Include="Models\Questions.cs" />
     <Compile Include="Models\ThemeColor.cs" />
     <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\View Models\RoundView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin Forms\frmHome.resx">
@@ -238,6 +239,17 @@
     <None Include="Resources\finish.ico" />
     <None Include="Resources\login.ico" />
     <Content Include="Resources\martin-katler-7KJdg5Hi6XM-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

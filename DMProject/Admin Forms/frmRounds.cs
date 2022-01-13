@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DMProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace DMProject.Forms
         public frmOrders()
         {
             InitializeComponent();
+        }
+
+        private void frmOrders_Load(object sender, EventArgs e)
+        {
+            guna2DataGridView1.DataSource = DatabaseCongfigurations.GetRoundView();
         }
     }
 }
