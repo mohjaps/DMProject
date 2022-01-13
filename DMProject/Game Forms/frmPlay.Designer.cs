@@ -43,6 +43,14 @@
             this.lblTimer = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnNext = new System.Windows.Forms.Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblWrong = new System.Windows.Forms.Label();
+            this.lblTrue = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFirst
@@ -60,7 +68,7 @@
             this.btnFirst.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold);
             this.btnFirst.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnFirst.HoverState.Parent = this.btnFirst;
-            this.btnFirst.Location = new System.Drawing.Point(559, 164);
+            this.btnFirst.Location = new System.Drawing.Point(490, 143);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.ShadowDecoration.Parent = this.btnFirst;
             this.btnFirst.Size = new System.Drawing.Size(128, 122);
@@ -82,7 +90,7 @@
             this.btnEquals.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold);
             this.btnEquals.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnEquals.HoverState.Parent = this.btnEquals;
-            this.btnEquals.Location = new System.Drawing.Point(559, 309);
+            this.btnEquals.Location = new System.Drawing.Point(734, 300);
             this.btnEquals.Name = "btnEquals";
             this.btnEquals.ShadowDecoration.Parent = this.btnEquals;
             this.btnEquals.Size = new System.Drawing.Size(128, 122);
@@ -104,7 +112,7 @@
             this.btnOperation.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold);
             this.btnOperation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnOperation.HoverState.Parent = this.btnOperation;
-            this.btnOperation.Location = new System.Drawing.Point(713, 164);
+            this.btnOperation.Location = new System.Drawing.Point(644, 143);
             this.btnOperation.Name = "btnOperation";
             this.btnOperation.ShadowDecoration.Parent = this.btnOperation;
             this.btnOperation.Size = new System.Drawing.Size(128, 122);
@@ -126,7 +134,7 @@
             this.btnSecond.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold);
             this.btnSecond.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnSecond.HoverState.Parent = this.btnSecond;
-            this.btnSecond.Location = new System.Drawing.Point(870, 164);
+            this.btnSecond.Location = new System.Drawing.Point(801, 143);
             this.btnSecond.Name = "btnSecond";
             this.btnSecond.ShadowDecoration.Parent = this.btnSecond;
             this.btnSecond.Size = new System.Drawing.Size(128, 122);
@@ -148,12 +156,12 @@
             this.btnAnswer.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold);
             this.btnAnswer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAnswer.HoverState.Parent = this.btnAnswer;
-            this.btnAnswer.Location = new System.Drawing.Point(782, 309);
+            this.btnAnswer.Location = new System.Drawing.Point(566, 300);
             this.btnAnswer.Name = "btnAnswer";
             this.btnAnswer.ShadowDecoration.Parent = this.btnAnswer;
             this.btnAnswer.Size = new System.Drawing.Size(128, 122);
             this.btnAnswer.TabIndex = 18;
-            this.btnAnswer.Text = "15";
+            this.btnAnswer.Text = "?";
             this.btnAnswer.DragDrop += new System.Windows.Forms.DragEventHandler(this.btnAnswerKey_DragDrop);
             this.btnAnswer.DragEnter += new System.Windows.Forms.DragEventHandler(this.btnAnswerKey_DragEnter);
             // 
@@ -163,7 +171,7 @@
             this.lblQuestionsCount.BackColor = System.Drawing.SystemColors.Control;
             this.lblQuestionsCount.Font = new System.Drawing.Font("Zilla Slab SemiBold", 20F);
             this.lblQuestionsCount.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblQuestionsCount.Location = new System.Drawing.Point(38, 18);
+            this.lblQuestionsCount.Location = new System.Drawing.Point(50, 50);
             this.lblQuestionsCount.Name = "lblQuestionsCount";
             this.lblQuestionsCount.Size = new System.Drawing.Size(38, 41);
             this.lblQuestionsCount.TabIndex = 7;
@@ -275,7 +283,7 @@
             this.lblTimer.BackColor = System.Drawing.Color.Transparent;
             this.lblTimer.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblTimer.ForeColor = System.Drawing.Color.Green;
-            this.lblTimer.Location = new System.Drawing.Point(415, 12);
+            this.lblTimer.Location = new System.Drawing.Point(490, 65);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(54, 26);
             this.lblTimer.TabIndex = 24;
@@ -289,7 +297,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(991, 321);
+            this.btnNext.Location = new System.Drawing.Point(991, 364);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(138, 91);
             this.btnNext.TabIndex = 6;
@@ -297,11 +305,75 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.lblWrong);
+            this.guna2Panel1.Controls.Add(this.lblTrue);
+            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox2);
+            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2Panel1.Location = new System.Drawing.Point(874, 37);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
+            this.guna2Panel1.Size = new System.Drawing.Size(226, 54);
+            this.guna2Panel1.TabIndex = 25;
+            // 
+            // lblWrong
+            // 
+            this.lblWrong.AutoSize = true;
+            this.lblWrong.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold);
+            this.lblWrong.ForeColor = System.Drawing.Color.Red;
+            this.lblWrong.Location = new System.Drawing.Point(185, 14);
+            this.lblWrong.Name = "lblWrong";
+            this.lblWrong.Size = new System.Drawing.Size(24, 26);
+            this.lblWrong.TabIndex = 28;
+            this.lblWrong.Text = "0";
+            // 
+            // lblTrue
+            // 
+            this.lblTrue.AutoSize = true;
+            this.lblTrue.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTrue.ForeColor = System.Drawing.Color.Green;
+            this.lblTrue.Location = new System.Drawing.Point(69, 14);
+            this.lblTrue.Name = "lblTrue";
+            this.lblTrue.Size = new System.Drawing.Size(24, 26);
+            this.lblTrue.TabIndex = 26;
+            this.lblTrue.Text = "0";
+            // 
+            // guna2CirclePictureBox2
+            // 
+            this.guna2CirclePictureBox2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox2.Image = global::DMProject.Properties.Resources.wrong;
+            this.guna2CirclePictureBox2.ImageRotate = 0F;
+            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(131, 8);
+            this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
+            this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox2.ShadowDecoration.Parent = this.guna2CirclePictureBox2;
+            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(40, 38);
+            this.guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox2.TabIndex = 27;
+            this.guna2CirclePictureBox2.TabStop = false;
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.Image = global::DMProject.Properties.Resources.correct;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(13, 8);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(40, 38);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 26;
+            this.guna2CirclePictureBox1.TabStop = false;
+            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
+            // 
             // frmPlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 472);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnAnswerKey1);
             this.Controls.Add(this.btnAnswerKey4);
@@ -318,6 +390,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPlay";
             this.Load += new System.EventHandler(this.frmPlay_Load);
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +414,10 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTimer;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private System.Windows.Forms.Label lblWrong;
+        private System.Windows.Forms.Label lblTrue;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
     }
 }

@@ -17,10 +17,11 @@ namespace DMProject.Game_Forms
         Random rnd = new Random(); // Get A Random Number From 0 To 'Determines Later'.
         List<string> questions = new List<string>(); // A List For questions That Solved.
         string[] operations = new string[2]{ "×", "÷" }; // An Array For Store Operations.
-        int maxQuestion;
+        int maxQuestion = 0;
         int minuates = 0, seconds = 0;
         int correct = 0, wrong = 0;
-        Guna2Button selected;
+        int answerKey;
+        int totalTime = -1;
 
         //Enum Operations = new Enum();
         public frmPlay()
@@ -33,20 +34,27 @@ namespace DMProject.Game_Forms
             foreach(Control control in this.Controls)
                 if(control is Button) control.AllowDrop = true;
 
-            baseTables = (List<int>)Tag; // Get The Multiple Tables
+
+            object[] ob = (object[])Tag;
+
+            baseTables = (List<int>)ob[0]; // Get The Multiple Tables.
             baseTables.Sort();
-            maxQuestion = baseTables.Count() * 11 * 2;
-            minuates = baseTables.Count();
+            maxQuestion = int.Parse(ob[1].ToString());
+            minuates = maxQuestion/3;
+            seconds = (maxQuestion%3) *15;
             this.Text = $"Tables [{string.Join(", ", baseTables)}]";
             GetQuestion();
             printTime();
         }
         private void GetQuestion()
         {
+            timer1.Start();
+            btnAnswer.Text = "?";
             if (questions.Count() == maxQuestion) // Close The Form When It Equals The Maximum Number Of Questions
             {
-                timer1.Start();
-                DialogResult ClosingDialog = MessageBox.Show("Game End");
+                timer1.Stop();
+                string msg = correct > wrong ? "Great" : correct == wrong ? "Good" : "Falied";
+                DialogResult ClosingDialog = MessageBox.Show($"Game End\nCorrect Answers Count: {correct}\nWrong Answers Count: {wrong}\n{msg}");
                 if (ClosingDialog == DialogResult.OK)
                     Close();
                 return;
@@ -78,7 +86,7 @@ namespace DMProject.Game_Forms
             {
                 btnFirst.Text = operatorNumber.ToString();
                 question = $"{operatorNumber} {operation} {baseTable} ?";
-                btnAnswer.Text = answer.ToString();
+                answerKey = answer;
                 answerButtons[rnd.Next(4)].Text = $"{answer}";
                 
                 for (int j = 0; j < answerButtons.Count(); j++)
@@ -102,7 +110,7 @@ namespace DMProject.Game_Forms
             {
                 btnFirst.Text = answer.ToString();
                 question = $"{answer} {operation} {baseTable} ?";
-                btnAnswer.Text = operatorNumber.ToString();
+                answerKey = operatorNumber;
                 answerButtons[rnd.Next(4)].Text = $"{operatorNumber}";
 
                 for (int j = 0; j < answerButtons.Count(); j++)
@@ -128,12 +136,28 @@ namespace DMProject.Game_Forms
                 questions.Add(question);
             else goto Again;
 
-
             lblQuestionsCount.Text = $"{int.Parse(lblQuestionsCount.Text.Replace($"/ {maxQuestion}", "")) + 1} / {maxQuestion}";
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            GetQuestion();
+            timer1.Stop();
+            if (!btnAnswer.Text.Equals("?"))
+            {
+                bool isCorrect = (btnAnswer.Text == answerKey.ToString());
+                if (isCorrect)
+                {
+                    MessageBox.Show("Answer Is Correct");
+                    correct++;
+                }
+                else
+                {
+                    MessageBox.Show("Answer Is Wrong");
+                    wrong++;
+                }
+                lblTrue.Text = correct.ToString();
+                lblWrong.Text = wrong.ToString();
+                GetQuestion();
+            }
         }
         // Drag And Drop Answer
         private void btnAnswerKey_DragEnter(object sender, DragEventArgs e)
@@ -164,10 +188,16 @@ namespace DMProject.Game_Forms
 
         }
 
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             printTime();
             seconds--;
+            totalTime+=1;
             if (seconds < 0)
             {
                 seconds = 59;
@@ -176,7 +206,9 @@ namespace DMProject.Game_Forms
             if (minuates < 0)
             {
                 timer1.Stop();
-                MessageBox.Show("Time Over", "Time Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show(totalTime.ToString());
+                string msg = correct > wrong ? "Great" : correct == wrong ? "Good" : "Falied";
+                MessageBox.Show($"Game End\nCorrect Answers Count: {correct}\nWrong Answers Count: {wrong}\n{msg}", "Time Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 this.Close();
             }
             if (minuates == 0 && seconds < 10)

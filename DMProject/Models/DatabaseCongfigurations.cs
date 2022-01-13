@@ -11,6 +11,7 @@ namespace DMProject.Models
 {
     internal static class DatabaseCongfigurations
     {
+        static SqlConnection conn = Connection();
         private static SqlConnection Connection()
         {
             return new SqlConnection("Data Source=.;Initial Catalog=FinalProejct;Integrated Security=True");
@@ -18,7 +19,6 @@ namespace DMProject.Models
         //Returns An Admin
         public static Admin GetAdmin(string username)
         {
-            SqlConnection conn = Connection();
             string cmm = "Select Username, Password From Admins Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@Username", username);
@@ -49,7 +49,6 @@ namespace DMProject.Models
         //Returns All Players
         public static List<Player> GetPlayers()
         {
-            SqlConnection conn = Connection();
             string cmm = "Select Username, Name, Age, Score, LastLogin From Players";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             try
@@ -83,7 +82,7 @@ namespace DMProject.Models
         //Returns A Player
         public static Player GetPlayer(string username)
         {
-            SqlConnection conn = Connection();
+            
             string cmm = "Select Username, Name, Age, Score, LastLogin From Players Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@Username", username);
@@ -117,7 +116,6 @@ namespace DMProject.Models
         //Inserts A Player
         public static int AddPlayer(Player player)
         {
-            SqlConnection conn = Connection();
             string cmm = "Insert Into Players (Username, Name, Age) Values (@Username, @Name, @Age)";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@Username", player.Username);
@@ -141,7 +139,6 @@ namespace DMProject.Models
         //Deletes A Player
         public static int DeletePlayer(string Username)
         {
-            SqlConnection conn = Connection();
             string cmm = "Delete From Players Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@Username", Username);
@@ -163,7 +160,6 @@ namespace DMProject.Models
         //Updates A Player
         public static int UpdatePlayer(Player player)
         {
-            SqlConnection conn = Connection();
             string cmm = "Update Players Set Score = @Score, LastLogin = @LastLogin Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@Username", player.Username);
@@ -187,7 +183,6 @@ namespace DMProject.Models
         //Inserts A Round
         public static int AddRound(Round round)
         {
-            SqlConnection conn = Connection();
             string cmm = "Insert Into Rounds (PlayerUsername, Score, RoundDateTime) Values (@PlayerUsername, @Score, @RoundDateTime)";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@PlayerUsername", round.PlayerUsername);

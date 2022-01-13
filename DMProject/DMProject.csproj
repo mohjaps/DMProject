@@ -226,6 +226,7 @@
     <None Include="Resources\value.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\transparent.png" />
     <None Include="Resources\wrong.ico" />
     <None Include="Resources\username.ico" />
     <None Include="Resources\start.ico" />

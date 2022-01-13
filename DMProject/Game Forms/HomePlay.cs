@@ -15,23 +15,13 @@ namespace DMProject.Game_Forms
     public partial class HomePlay : Form
     {
         private Random random= new Random();
-        //private System.Timers.Timer t = new System.Timers.Timer();
         private int tempIndex;
+        List<int> ints = new List<int>();
+        int numOfQuestions;
         //int m = 9, s = 1;
         public HomePlay()
         {
             InitializeComponent();
-        }
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-            // Buttons Coloring. 
-            //for (int i = 0; i < this.Controls.Count; i++)
-            //{
-            //    var btn = this.Controls[i];
-            //    if (btn is Button && !btn.Name.Contains("btnGo"))
-            //        btn.BackColor = SelectThemeColor();
-            //}
         }
 
         private Color SelectThemeColor()
@@ -49,6 +39,8 @@ namespace DMProject.Game_Forms
         private void btnQuestion9_Click(object sender, EventArgs e)
         {
             Button btn = ((Button)sender); // Gets The Clicked Button.  
+            ints = new List<int>();
+
 
             if (btn.FlatStyle == FlatStyle.Standard)
             {
@@ -61,30 +53,27 @@ namespace DMProject.Game_Forms
                 btn.FlatStyle = FlatStyle.Standard;
                 btn.FlatAppearance.BorderSize = 0;
             }
-
-
-            //string btnNumber = ((Button)sender).Text; // Gets The Text Of The Clicked Button.  
-            //this.Hide();
-            //frmPlay frmPlay = new frmPlay();
-            //frmPlay.Tag = btnNumber;
-            //frmPlay.ShowDialog();
-            //this.Show();
+            
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                var btns = this.Controls[i];
+                if (btns is Button && !btns.Name.Contains("btnGo") && ((Button)btns).FlatStyle == FlatStyle.Flat)
+                    ints.Add(int.Parse(btns.Text));
+            }
+            List<int> questionNums = new List<int>();
+            numOfQuestions = ints.Count() * 11 * 2;
+            for (int j = 0; j < numOfQuestions; j++)
+                questionNums.Add(j+1);
+            guna2ComboBox1.DataSource = questionNums;
         }
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            List<int> ints = new List<int>();
-            for (int i = 0; i < this.Controls.Count; i++)
-            {
-                var btn = this.Controls[i];
-                if (btn is Button && !btn.Name.Contains("btnGo") && ((Button)btn).FlatStyle == FlatStyle.Flat)
-                    ints.Add(int.Parse(btn.Text));
-            }
-            if (ints.Count() > 0)
+            if (ints.Count() > 0 && guna2ComboBox1.SelectedValue.ToString().Length > 0)
             {
                 this.Hide();
                 frmPlay frmPlay = new frmPlay();
-                frmPlay.Tag = ints;
+                frmPlay.Tag = new object[2]{ints ,int.Parse(guna2ComboBox1.SelectedValue.ToString())};
                 frmPlay.ShowDialog();
                 this.Show();
             }
