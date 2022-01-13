@@ -1,4 +1,6 @@
-﻿using Guna.UI2.WinForms;
+﻿using DMProject.Models;
+using DMProject.Models.Principles;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +24,8 @@ namespace DMProject.Game_Forms
         int correct = 0, wrong = 0;
         int answerKey;
         int totalTime = -1;
+        string username = "";
+        DateTime StartTime = DateTime.Now;
 
         //Enum Operations = new Enum();
         public frmPlay()
@@ -42,6 +46,7 @@ namespace DMProject.Game_Forms
             maxQuestion = int.Parse(ob[1].ToString());
             minuates = maxQuestion/3;
             seconds = (maxQuestion%3) *15;
+            username = ob[2].ToString();
             this.Text = $"Tables [{string.Join(", ", baseTables)}]";
             GetQuestion();
             printTime();
@@ -191,6 +196,36 @@ namespace DMProject.Game_Forms
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmPlay_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+            Round round = new Round();
+            round.PlayerUsername = username;
+            round.selectedTables = string.Join(", ", baseTables);
+            round.totalQuestions = maxQuestion;
+            round.solvedQuestions = int.Parse(lblQuestionsCount.Text.Replace($"/ {maxQuestion}", ""));
+            round.correct = correct;
+            round.wrong = wrong;
+            round.timeConsumed = totalTime;
+            double d = Math.Round((double)correct / maxQuestion);
+            round.Score = (int)Math.Round(((double)correct / maxQuestion) * 100);
+            round.RoundDateTime = StartTime;
+            ;
+            try
+            {
+                DatabaseCongfigurations.AddRound(round);
+                double cnt = DatabaseCongfigurations.RoundsCount(username);
+                double sum = DatabaseCongfigurations.RoundsTotalScore(username);
+                Player player = DatabaseCongfigurations.GetPlayer(username);
+                player.Score = (int)(Math.Round(sum / cnt));
+                DatabaseCongfigurations.UpdatePlayer(player);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

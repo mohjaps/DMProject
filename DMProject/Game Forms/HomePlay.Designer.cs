@@ -44,6 +44,7 @@
             this.lblLastLogin = new System.Windows.Forms.Label();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblTotalRounds = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnQuestion6
@@ -204,7 +205,7 @@
             // 
             this.lblScore.AutoSize = true;
             this.lblScore.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblScore.Location = new System.Drawing.Point(226, 20);
+            this.lblScore.Location = new System.Drawing.Point(395, 20);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(72, 24);
             this.lblScore.TabIndex = 16;
@@ -214,7 +215,7 @@
             // 
             this.lblLastLogin.AutoSize = true;
             this.lblLastLogin.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblLastLogin.Location = new System.Drawing.Point(522, 20);
+            this.lblLastLogin.Location = new System.Drawing.Point(26, 65);
             this.lblLastLogin.Name = "lblLastLogin";
             this.lblLastLogin.Size = new System.Drawing.Size(114, 24);
             this.lblLastLogin.TabIndex = 17;
@@ -251,12 +252,23 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Number Of Questions";
             // 
+            // lblTotalRounds
+            // 
+            this.lblTotalRounds.AutoSize = true;
+            this.lblTotalRounds.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblTotalRounds.Location = new System.Drawing.Point(395, 65);
+            this.lblTotalRounds.Name = "lblTotalRounds";
+            this.lblTotalRounds.Size = new System.Drawing.Size(140, 24);
+            this.lblTotalRounds.TabIndex = 20;
+            this.lblTotalRounds.Text = "Total Rounds: ";
+            // 
             // HomePlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(823, 710);
+            this.Controls.Add(this.lblTotalRounds);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.lblLastLogin);
@@ -276,6 +288,7 @@
             this.Name = "HomePlay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choose A Table ...";
+            this.Load += new System.EventHandler(this.HomePlay_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,5 +311,6 @@
         private System.Windows.Forms.Label lblLastLogin;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTotalRounds;
     }
 }

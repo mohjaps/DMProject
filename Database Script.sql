@@ -19,7 +19,13 @@ Create Table Rounds
 (
 	Id Int Identity Primary Key,
 	PlayerUsername VarChar(50),
-	Score Int Default 0,
+	totalQuestions int, 
+	solvedQuestions int, 
+	selectedTables VarChar(100), 
+	timeConsumed int, 
+	correct int, 
+	wrong int, 
+	Score int, 
 	RoundDateTime DateTime Default GetDate(),
 	Constraint FK_Players_Rounds Foreign Key (PlayerUsername) References Players(Username)
 )

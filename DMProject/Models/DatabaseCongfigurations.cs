@@ -183,15 +183,68 @@ namespace DMProject.Models
         //Inserts A Round
         public static int AddRound(Round round)
         {
-            string cmm = "Insert Into Rounds (PlayerUsername, Score, RoundDateTime) Values (@PlayerUsername, @Score, @RoundDateTime)";
+            string cmm = "Insert Into Rounds (PlayerUsername, totalQuestions, solvedQuestions, selectedTables, timeConsumed, correct, wrong, Score, RoundDateTime) Values (@PlayerUsername, @totalQuestions, @solvedQuestions, @selectedTables, @timeConsumed, @correct, @wrong, @Score, @RoundDateTime)";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@PlayerUsername", round.PlayerUsername);
+            cmd.Parameters.AddWithValue("@totalQuestions", round.totalQuestions);
+            cmd.Parameters.AddWithValue("@solvedQuestions", round.solvedQuestions);
+            cmd.Parameters.AddWithValue("@selectedTables", round.selectedTables);
+            cmd.Parameters.AddWithValue("@timeConsumed", round.timeConsumed);
+            cmd.Parameters.AddWithValue("@correct", round.correct);
+            cmd.Parameters.AddWithValue("@wrong", round.wrong);
             cmd.Parameters.AddWithValue("@Score", round.Score);
             cmd.Parameters.AddWithValue("@RoundDateTime", round.RoundDateTime);
             try
             {
                 conn.Open();
                 int result = cmd.ExecuteNonQuery();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        //Gets Count Of Rounds Of A Specific User
+        public static int RoundsCount(string username)
+        {
+            string comm = "Select Count(Id) As \"total\" From Rounds Where PlayerUsername = @PlayerUsername";
+            SqlCommand sqlCommand = new SqlCommand(comm, conn);
+            sqlCommand.Parameters.AddWithValue("@PlayerUsername", username);
+            try
+            {
+                conn.Open();
+                int result = -1;
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                if (reader.Read())
+                    result = int.Parse(reader["total"].ToString());
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }        //Gets Count Of Rounds Of A Specific User
+        public static int RoundsTotalScore(string username)
+        {
+            string comm = "Select Sum(Score) As \"Sum\" From Rounds Where PlayerUsername = @PlayerUsername";
+            SqlCommand sqlCommand = new SqlCommand(comm, conn);
+            sqlCommand.Parameters.AddWithValue("@PlayerUsername", username);
+            try
+            {
+                conn.Open();
+                int result = -1;
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                if (reader.Read())
+                    result = int.Parse(reader["Sum"].ToString());
                 return result;
             }
             catch (SqlException ex)

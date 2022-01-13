@@ -1,4 +1,5 @@
 ﻿using DMProject.Models;
+using DMProject.Models.Principles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace DMProject.Game_Forms
 {
     public partial class HomePlay : Form
     {
+        Player player = new Player();
         private Random random= new Random();
         private int tempIndex;
         List<int> ints = new List<int>();
@@ -22,18 +24,6 @@ namespace DMProject.Game_Forms
         public HomePlay()
         {
             InitializeComponent();
-        }
-
-        private Color SelectThemeColor()
-        {
-            int index = random.Next(ThemeColor.ColorList.Count);
-            while (tempIndex == index)
-            {
-                random.Next(ThemeColor.ColorList.Count);
-            }
-            tempIndex = index;
-            string color = ThemeColor.ColorList[tempIndex];
-            return ColorTranslator.FromHtml(color);
         }
 
         private void btnQuestion9_Click(object sender, EventArgs e)
@@ -73,10 +63,25 @@ namespace DMProject.Game_Forms
             {
                 this.Hide();
                 frmPlay frmPlay = new frmPlay();
-                frmPlay.Tag = new object[2]{ints ,int.Parse(guna2ComboBox1.SelectedValue.ToString())};
+                frmPlay.Tag = new object[3]{ints ,int.Parse(guna2ComboBox1.SelectedValue.ToString()), player.Username};
                 frmPlay.ShowDialog();
                 this.Show();
+                player = DatabaseCongfigurations.GetPlayer(Tag.ToString());
+                lblScore.Text = $"Total Score: {player.Score}";
+                lblTotalRounds.Text = $"Total Rounds: {DatabaseCongfigurations.RoundsCount(player.Username)}";
+
             }
+        }
+
+        private void HomePlay_Load(object sender, EventArgs e)
+        {
+            player = DatabaseCongfigurations.GetPlayer(Tag.ToString());
+            lblHello.Text = $"Hello {player.Name}!";
+            lblScore.Text = $"Total Score: {player.Score}";
+            lblTotalRounds.Text = $"Total Rounds: {DatabaseCongfigurations.RoundsCount(player.Username)}";
+            lblLastLogin.Text = $"Last Login At {player.LastLogin}";
+            player.LastLogin = DateTime.Now;
+            DatabaseCongfigurations.UpdatePlayer(player);
         }
     }
 }
