@@ -45,7 +45,6 @@ namespace DMProject.Game_Forms
         {
             MP.URL = "Sounds/startGame.mp3";
             MP.controls.play();
-
         }
     }
 }

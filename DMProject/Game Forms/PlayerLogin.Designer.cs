@@ -41,7 +41,7 @@
             this.gboxLogin = new Guna.UI2.WinForms.Guna2GroupBox();
             this.txtUsernameLogin = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btnLogin = new Guna.UI2.WinForms.Guna2CircleButton();
             this.gboxNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAge)).BeginInit();
             this.gboxLogin.SuspendLayout();
@@ -50,6 +50,7 @@
             // radioBtnNew
             // 
             this.radioBtnNew.AutoSize = true;
+            this.radioBtnNew.Checked = true;
             this.radioBtnNew.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.radioBtnNew.CheckedState.BorderThickness = 0;
             this.radioBtnNew.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -59,12 +60,14 @@
             this.radioBtnNew.Name = "radioBtnNew";
             this.radioBtnNew.Size = new System.Drawing.Size(96, 21);
             this.radioBtnNew.TabIndex = 0;
+            this.radioBtnNew.TabStop = true;
             this.radioBtnNew.Text = "New Player";
             this.radioBtnNew.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.radioBtnNew.UncheckedState.BorderThickness = 2;
             this.radioBtnNew.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.radioBtnNew.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.radioBtnNew.CheckedChanged += new System.EventHandler(this.radioBtnExixtedPlayer_CheckedChanged);
+            this.radioBtnNew.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             // 
             // radioBtnExixtedPlayer
             // 
@@ -84,6 +87,7 @@
             this.radioBtnExixtedPlayer.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.radioBtnExixtedPlayer.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.radioBtnExixtedPlayer.CheckedChanged += new System.EventHandler(this.radioBtnExixtedPlayer_CheckedChanged);
+            this.radioBtnExixtedPlayer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             // 
             // label2
             // 
@@ -113,6 +117,7 @@
             this.gboxNew.Size = new System.Drawing.Size(730, 296);
             this.gboxNew.TabIndex = 6;
             this.gboxNew.Text = "New Player";
+            this.gboxNew.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             // 
             // label5
             // 
@@ -161,6 +166,7 @@
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
             this.txtUsername.Size = new System.Drawing.Size(440, 33);
             this.txtUsername.TabIndex = 3;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             // 
             // txtAge
             // 
@@ -191,6 +197,7 @@
             0,
             0,
             0});
+            this.txtAge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             // 
             // txtName
             // 
@@ -215,6 +222,7 @@
             this.txtName.ShadowDecoration.Parent = this.txtName;
             this.txtName.Size = new System.Drawing.Size(440, 33);
             this.txtName.TabIndex = 1;
+            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             // 
             // label1
             // 
@@ -234,12 +242,13 @@
             this.gboxLogin.Controls.Add(this.label7);
             this.gboxLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gboxLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.gboxLogin.Location = new System.Drawing.Point(38, 97);
+            this.gboxLogin.Location = new System.Drawing.Point(32, 100);
             this.gboxLogin.Name = "gboxLogin";
             this.gboxLogin.ShadowDecoration.Parent = this.gboxLogin;
             this.gboxLogin.Size = new System.Drawing.Size(730, 296);
             this.gboxLogin.TabIndex = 7;
             this.gboxLogin.Text = "Login Player";
+            this.gboxLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             // 
             // txtUsernameLogin
             // 
@@ -264,6 +273,7 @@
             this.txtUsernameLogin.ShadowDecoration.Parent = this.txtUsernameLogin;
             this.txtUsernameLogin.Size = new System.Drawing.Size(440, 33);
             this.txtUsernameLogin.TabIndex = 3;
+            this.txtUsernameLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             // 
             // label7
             // 
@@ -277,28 +287,28 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Username";
             // 
-            // guna2CircleButton1
+            // btnLogin
             // 
-            this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.CustomImages.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.DisabledState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Image = global::DMProject.Properties.Resources.next;
-            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(718, 41);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.ShadowDecoration.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(50, 50);
-            this.guna2CircleButton1.TabIndex = 8;
-            this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click);
+            this.btnLogin.CheckedState.Parent = this.btnLogin;
+            this.btnLogin.CustomImages.Parent = this.btnLogin;
+            this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogin.DisabledState.Parent = this.btnLogin;
+            this.btnLogin.FillColor = System.Drawing.Color.Transparent;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.HoverState.Parent = this.btnLogin;
+            this.btnLogin.Image = global::DMProject.Properties.Resources.next;
+            this.btnLogin.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnLogin.Location = new System.Drawing.Point(718, 41);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnLogin.ShadowDecoration.Parent = this.btnLogin;
+            this.btnLogin.Size = new System.Drawing.Size(50, 50);
+            this.btnLogin.TabIndex = 8;
+            this.btnLogin.Click += new System.EventHandler(this.guna2CircleButton1_Click);
             // 
             // PlayerLogin
             // 
@@ -306,7 +316,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.guna2CircleButton1);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.gboxLogin);
             this.Controls.Add(this.gboxNew);
             this.Controls.Add(this.label2);
@@ -317,6 +327,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayerLogin";
             this.Load += new System.EventHandler(this.PlayerLogin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayerLogin_KeyDown);
             this.gboxNew.ResumeLayout(false);
             this.gboxNew.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAge)).EndInit();
@@ -342,6 +353,6 @@
         private Guna.UI2.WinForms.Guna2GroupBox gboxLogin;
         private Guna.UI2.WinForms.Guna2TextBox txtUsernameLogin;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2CircleButton btnLogin;
     }
 }

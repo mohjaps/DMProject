@@ -49,14 +49,14 @@ namespace DMProject.Models
             }
         }
         //Returns All Players
-        public static List<Player> GetPlayers()
+        public static BindingList<Player> GetPlayers()
         {
             string cmm = "Select Username, Name, Age, Score, LastLogin From Players";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             try
             {
                 conn.Open();
-                List<Player> Players = new List<Player>();
+                BindingList<Player> Players = new BindingList<Player>();
                 SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.Default);
                 while (reader.Read())
                 {

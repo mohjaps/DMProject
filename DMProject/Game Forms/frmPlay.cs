@@ -33,14 +33,13 @@ namespace DMProject.Game_Forms
         {
             InitializeComponent();
         }
-
         private void frmPlay_Load(object sender, EventArgs e)
         {
             foreach(Control control in this.Controls)
                 if(control is Button) control.AllowDrop = true;
 
 
-            object[] ob = (object[])Tag;
+            object[] ob = (object[])Tag; // Fetch Data From Previous Form
 
             baseTables = (List<int>)ob[0]; // Get The Multiple Tables.
             baseTables.Sort();
@@ -174,7 +173,6 @@ namespace DMProject.Game_Forms
         {
             e.Effect = DragDropEffects.Copy;
         }
-
         private void btnAnswerKey_DragDrop(object sender, DragEventArgs e)
         {
             btnAnswer.Text = e.Data.GetData(DataFormats.Text).ToString();
@@ -184,7 +182,6 @@ namespace DMProject.Game_Forms
             
             //selected.BorderColor = Color.Blue;
         }
-
         private void btnAnswerKey1_MouseUp(object sender, MouseEventArgs e)
         {
             string s = ((Guna2Button)sender).Text;
@@ -192,17 +189,14 @@ namespace DMProject.Game_Forms
             
             //selected = ((Guna2Button)sender);
         }
-
         private void btnAnswerKey4_Click(object sender, EventArgs e)
         {
 
         }
-
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void frmPlay_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Stop();
@@ -232,7 +226,6 @@ namespace DMProject.Game_Forms
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             printTime();

@@ -36,6 +36,7 @@ namespace DMProject
             childForm.BringToFront();
             childForm.Show();
             lblTitle.Text = childForm.Text;
+            Text = childForm.Text + " - Admin";
         }
         private Color SelectThemeColor()
         {
@@ -101,6 +102,27 @@ namespace DMProject
         private void btnSettings_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.frmSettings(), sender);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnBackHome_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                DisableButton();
+                lblTitle.Text = "Home";
+                Text = "Home - Admin";
+            }
+        }
+
+        private void FormMainMenue_Load(object sender, EventArgs e)
+        {
+            Text = "Home - Admin";
         }
     }
 }

@@ -14,6 +14,7 @@ namespace DMProject.Game_Forms
 {
     public partial class PlayerLogin : Form
     {
+        int isPlayer = 0;
         public PlayerLogin()
         {
             InitializeComponent();
@@ -26,8 +27,48 @@ namespace DMProject.Game_Forms
 
         private void PlayerLogin_Load(object sender, EventArgs e)
         {
-            gboxNew.Visible = radioBtnNew.Checked;
-            gboxLogin.Visible = radioBtnExixtedPlayer.Checked;
+            if (Text.Equals("New Player - Admin"))
+            {
+                isPlayer = 1;
+                gboxNew.Text = Text;
+            }
+            else if (Text.Equals("Update Player - Admin"))
+            {
+                isPlayer = 2;
+                gboxNew.Text = Text;
+                try
+                {
+                    Player player = DatabaseCongfigurations.GetPlayer(Tag.ToString());
+                    if (player != null)
+                    {
+                        txtUsername.ReadOnly = true;
+                        txtUsername.Text = player.Username;
+                        txtName.Text = player.Name;
+                        txtAge.Value = player.Age;
+                    }
+                    else
+                    {
+                        MessageBox.Show("An Error Was Ocuured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            if (isPlayer == 0)
+            {
+                gboxNew.Visible = radioBtnNew.Checked;
+                gboxLogin.Visible = radioBtnExixtedPlayer.Checked;
+            }
+            else
+            {
+                radioBtnNew.Visible = false;
+                radioBtnExixtedPlayer.Visible = false;
+                gboxNew.Visible = true;
+                gboxLogin.Visible = false;
+            }
         }
 
         private void radioBtnExixtedPlayer_CheckedChanged(object sender, EventArgs e)
@@ -49,34 +90,60 @@ namespace DMProject.Game_Forms
                 };
                 try
                 {
-                    Player playerPlus = DatabaseCongfigurations.GetPlayer(palyer.Username);
-                    if (playerPlus == null)
-                    {
-                        int k = -1;
-                            k = DatabaseCongfigurations.AddPlayer(palyer);
-                        
-                        if (k > 0)
-                        {
-                            HomePlay frm = new HomePlay();
-                            frm.Tag = palyer.Username;
-                            this.Hide();
-                            frm.ShowDialog();
-                            this.Close();
-                        }
+                            if (isPlayer == 0)
+                            {
+                                Player playerPlus = DatabaseCongfigurations.GetPlayer(palyer.Username);
+                                if (playerPlus == null)
+                                {
+                                    int k = -1;
+                                    k = DatabaseCongfigurations.AddPlayer(palyer);
 
-                    }
-                    else
-                    {
-                        DialogResult res = MessageBox.Show("This Account Is Already Existed Do Youu Want To LogIn By It ?", "Account Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (res == DialogResult.Yes)
-                        {
-                            HomePlay frm = new HomePlay();
-                            frm.Tag = palyer.Username;
-                            this.Hide();
-                            frm.ShowDialog();
-                            this.Close();
-                        }
-                    }
+                                    if (k > 0)
+                                    {
+                                        if (isPlayer == 0)
+                                        {
+                                            HomePlay frm = new HomePlay();
+                                            frm.Tag = palyer.Username;
+                                            this.Hide();
+                                            frm.ShowDialog();
+                                            this.Close();
+                                        }
+                                        else
+                                        {
+                                            DialogResult res = MessageBox.Show("Player Has Inserted Do You Want To Insert Another One?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                            if (res == DialogResult.Yes)
+                                            {
+                                                txtUsername.Text = "";
+                                                txtName.Text = "";
+                                                txtAge.Value = txtAge.Minimum;
+                                            }
+                                            else Close();
+                                        }
+                                    }
+
+                                }
+                                else
+                                {
+                                    if (isPlayer == 0)
+                                    {
+                                        DialogResult res = MessageBox.Show("This Account Is Already Existed Do Youu Want To LogIn By It ?", "Account Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                        if (res == DialogResult.Yes)
+                                        {
+                                            HomePlay frm = new HomePlay();
+                                            frm.Tag = palyer.Username;
+                                            this.Hide();
+                                            frm.ShowDialog();
+                                            this.Close();
+                                        }
+                                    }
+                                    else
+                                        MessageBox.Show("This Account Is Already Existed", "Inf", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else if(isPlayer == 2)
+                            {
+                                //Here
+                            }
                 }
                 catch (Exception ex)
                 {
@@ -120,6 +187,14 @@ namespace DMProject.Game_Forms
                     MessageBox.Show("Please Fill The Requiered Fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 
+            }
+        }
+
+        private void PlayerLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
             }
         }
     }

@@ -238,6 +238,14 @@
     <None Include="Resources\correct.ico" />
     <None Include="Resources\finish.ico" />
     <None Include="Resources\login.ico" />
+    <None Include="Resources\Go.png" />
+    <None Include="Resources\Go1.png" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\Home.png" />
+    <None Include="Resources\Insert.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Details.png" />
+    <None Include="Resources\Delete.png" />
     <Content Include="Resources\martin-katler-7KJdg5Hi6XM-unsplash.jpg" />
   </ItemGroup>
   <ItemGroup>

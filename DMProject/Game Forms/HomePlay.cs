@@ -63,7 +63,7 @@ namespace DMProject.Game_Forms
             {
                 this.Hide();
                 frmPlay frmPlay = new frmPlay();
-                frmPlay.Tag = new object[3]{ints ,int.Parse(guna2ComboBox1.SelectedValue.ToString()), player.Username};
+                frmPlay.Tag = new object[3] { ints, int.Parse(guna2ComboBox1.SelectedValue.ToString()), player.Username };
                 frmPlay.ShowDialog();
                 this.Show();
                 player = DatabaseCongfigurations.GetPlayer(Tag.ToString());
@@ -82,6 +82,11 @@ namespace DMProject.Game_Forms
             lblLastLogin.Text = $"Last Login At {player.LastLogin}";
             player.LastLogin = DateTime.Now;
             DatabaseCongfigurations.UpdatePlayer(player);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
