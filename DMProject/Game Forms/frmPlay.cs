@@ -20,40 +20,53 @@ namespace DMProject.Game_Forms
         Random rnd = new Random(); // Get A Random Number From 0 To 'Determines Later'.
         List<string> questions = new List<string>(); // A List For questions That Solved.
         string[] operations = new string[2]{ "×", "÷" }; // An Array For Store Operations.
-        int maxQuestion = 0;
-        int minuates = 0, seconds = 0;
-        int correct = 0, wrong = 0;
-        int answerKey;
-        int totalTime = -1;
-        string username = "";
-        DateTime StartTime = DateTime.Now;
-        SoundPlayer SP = new SoundPlayer();
-        //Enum Operations = new Enum();
+        int maxQuestion = 0; // Gets Max Number Of Questions 
+        int minuates = 0, seconds = 0; // Timer Variables 
+        int correct = 0, wrong = 0; // Number Of Correct And Wrong Answers
+        int answerKey; // Correct Answer
+        int totalTime = -1; // Total Consumed Time In Seconds
+        string username = ""; // Player Username
+        DateTime StartTime = DateTime.Now; // Starting DateTime
+        SoundPlayer SP = new SoundPlayer(); // Sound Player
+        private int tempIndex; // BackGround Color Variable
         public frmPlay()
         {
             InitializeComponent();
         }
+        private Color SelectThemeColor()
+        {
+            int index = rnd.Next(ThemeColor.ColorList.Count);
+            while (tempIndex == index)
+            {
+                rnd.Next(ThemeColor.ColorList.Count);
+            }
+            tempIndex = index;
+            string color = ThemeColor.ColorList[tempIndex];
+            return ColorTranslator.FromHtml(color);
+        }
         private void frmPlay_Load(object sender, EventArgs e)
         {
+            BackColor = SelectThemeColor();
+
             foreach(Control control in this.Controls)
                 if(control is Button) control.AllowDrop = true;
-
 
             object[] ob = (object[])Tag; // Fetch Data From Previous Form
 
             baseTables = (List<int>)ob[0]; // Get The Multiple Tables.
             baseTables.Sort();
             maxQuestion = int.Parse(ob[1].ToString());
+            // 20 Seconds For Question
             minuates = maxQuestion/3;
-            seconds = (maxQuestion%3) *15;
+            seconds = (maxQuestion%3) * 20;
             username = ob[2].ToString();
-            this.Text = $"Tables [{string.Join(", ", baseTables)}]";
+            lblSelectedTables.Text = $"Tables: {string.Join(" - ", baseTables)}";
             GetQuestion();
             printTime();
         }
         private void GetQuestion()
         {
-            timer1.Start();
+            
             btnAnswer.Text = "?";
             if (questions.Count() == maxQuestion) // Close The Form When It Equals The Maximum Number Of Questions
             {
@@ -68,7 +81,8 @@ namespace DMProject.Game_Forms
             // Variables 
             string question = "", operation;
             int operatorNumber, baseTable, answer;
-            List<Guna2Button> answerButtons = new List<Guna2Button>(); // Answer Buttons. 
+            List<Guna2Button> answerButtons = new List<Guna2Button>(); // Answer Buttons.
+                                                                       // 
             foreach (Control button in Controls)
             {
                 if (button is Guna2Button && button.Name.Contains("AnswerKey"))
@@ -76,7 +90,7 @@ namespace DMProject.Game_Forms
             }
         Again:
             // Question Components.
-            operatorNumber = rnd.Next(11); // Gets First Operator
+            operatorNumber = rnd.Next(11); // Gets First Operator Randomly 
             operation = operations[rnd.Next(2)]; // Gets The Operation 
             baseTable = baseTables[rnd.Next(baseTables.Count())]; // Gets The Second Operator Form Selected Tables.
             answer = operatorNumber * baseTable; // Gets The Answer Of The Multiply Operation. 
@@ -94,6 +108,7 @@ namespace DMProject.Game_Forms
                 answerKey = answer;
                 answerButtons[rnd.Next(4)].Text = $"{answer}";
                 
+                // Create Wrong Answers 
                 for (int j = 0; j < answerButtons.Count(); j++)
                 {
                     if (answerButtons[j].Text.Length == 0)
@@ -137,35 +152,42 @@ namespace DMProject.Game_Forms
                 }
 
             }
+
             if (!questions.Contains(question))
                 questions.Add(question);
             else goto Again;
 
             lblQuestionsCount.Text = $"{int.Parse(lblQuestionsCount.Text.Replace($"/ {maxQuestion}", "")) + 1} / {maxQuestion}";
+            timer1.Start();
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
             if (!btnAnswer.Text.Equals("?"))
             {
+                timer1.Stop();
                 bool isCorrect = (btnAnswer.Text == answerKey.ToString());
                 if (isCorrect)
                 {
                     SP.SoundLocation = "Sounds/Correct.wav";
                     SP.Play();
-                    MessageBox.Show("Answer Is Correct");
+                    MessageBox.Show("Answer Is Correct", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     correct++;
                 }
                 else
                 {
                     SP.SoundLocation = "Sounds/Lose.wav";
                     SP.Play();
-                    MessageBox.Show("Answer Is Wrong");
+                    MessageBox.Show("Answer Is Wrong", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     wrong++;
                 }
                 lblTrue.Text = correct.ToString();
                 lblWrong.Text = wrong.ToString();
                 GetQuestion();
+                BackColor = SelectThemeColor();
+            }
+            else
+            {
+                MessageBox.Show("Answer The Question Before Go Next...", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         // Drag And Drop Answer
@@ -179,23 +201,11 @@ namespace DMProject.Game_Forms
             for (int i = 0; i < Controls.Count; i++)
                 if (Controls[i] is Guna2Button && Controls[i].Name.Contains("AnswerKey"))
                     ((Guna2Button)Controls[i]).BorderColor = Color.CadetBlue;
-            
-            //selected.BorderColor = Color.Blue;
         }
         private void btnAnswerKey1_MouseUp(object sender, MouseEventArgs e)
         {
             string s = ((Guna2Button)sender).Text;
             DoDragDrop(s, DragDropEffects.Copy);
-            
-            //selected = ((Guna2Button)sender);
-        }
-        private void btnAnswerKey4_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
         private void frmPlay_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -208,10 +218,8 @@ namespace DMProject.Game_Forms
             round.correct = correct;
             round.wrong = wrong;
             round.timeConsumed = totalTime.ToString();
-            double d = Math.Round((double)correct / maxQuestion);
             round.Score = (int)Math.Round(((double)correct / maxQuestion) * 100);
             round.RoundDateTime = StartTime;
-            ;
             try
             {
                 DatabaseCongfigurations.AddRound(round);
@@ -226,6 +234,22 @@ namespace DMProject.Game_Forms
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            string msg = correct > wrong ? "Great" : correct == wrong ? "Good" : "Falied";
+            DialogResult ClosingDialog = MessageBox.Show($"You Are Trying To Exit This Round, Are You Sure?", "Trying To Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (ClosingDialog == DialogResult.Yes)
+            {
+                MessageBox.Show($"Correct Answers Count: {correct}\nWrong Answers Count: {wrong}\n{msg}");
+                Close();
+                return;
+            }
+            timer1.Start();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             printTime();

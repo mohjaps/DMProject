@@ -50,7 +50,6 @@
             // radioBtnNew
             // 
             this.radioBtnNew.AutoSize = true;
-            this.radioBtnNew.Checked = true;
             this.radioBtnNew.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.radioBtnNew.CheckedState.BorderThickness = 0;
             this.radioBtnNew.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -60,7 +59,6 @@
             this.radioBtnNew.Name = "radioBtnNew";
             this.radioBtnNew.Size = new System.Drawing.Size(96, 21);
             this.radioBtnNew.TabIndex = 0;
-            this.radioBtnNew.TabStop = true;
             this.radioBtnNew.Text = "New Player";
             this.radioBtnNew.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.radioBtnNew.UncheckedState.BorderThickness = 2;
@@ -72,6 +70,7 @@
             // radioBtnExixtedPlayer
             // 
             this.radioBtnExixtedPlayer.AutoSize = true;
+            this.radioBtnExixtedPlayer.Checked = true;
             this.radioBtnExixtedPlayer.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.radioBtnExixtedPlayer.CheckedState.BorderThickness = 0;
             this.radioBtnExixtedPlayer.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -81,6 +80,7 @@
             this.radioBtnExixtedPlayer.Name = "radioBtnExixtedPlayer";
             this.radioBtnExixtedPlayer.Size = new System.Drawing.Size(103, 21);
             this.radioBtnExixtedPlayer.TabIndex = 1;
+            this.radioBtnExixtedPlayer.TabStop = true;
             this.radioBtnExixtedPlayer.Text = "Login Player";
             this.radioBtnExixtedPlayer.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.radioBtnExixtedPlayer.UncheckedState.BorderThickness = 2;

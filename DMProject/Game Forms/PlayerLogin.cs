@@ -59,8 +59,8 @@ namespace DMProject.Game_Forms
             }
             if (isPlayer == 0)
             {
-                gboxNew.Visible = radioBtnNew.Checked;
                 gboxLogin.Visible = radioBtnExixtedPlayer.Checked;
+                gboxNew.Visible = radioBtnNew.Checked;
             }
             else
             {

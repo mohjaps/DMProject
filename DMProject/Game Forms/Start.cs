@@ -31,7 +31,10 @@ namespace DMProject.Game_Forms
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult ClosingDialog = MessageBox.Show($"You Are Trying To Exit The Game, Are You Sure?", "Trying To Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (ClosingDialog == DialogResult.Yes)
+                Application.Exit();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
