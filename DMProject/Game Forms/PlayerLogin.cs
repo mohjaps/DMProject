@@ -27,12 +27,12 @@ namespace DMProject.Game_Forms
 
         private void PlayerLogin_Load(object sender, EventArgs e)
         {
-            if (Text.Equals("New Player - Admin"))
+            if (Text.Contains("New"))
             {
                 isPlayer = 1;
                 gboxNew.Text = Text;
             }
-            else if (Text.Equals("Update Player - Admin"))
+            else if (Text.Contains("Update"))
             {
                 isPlayer = 2;
                 gboxNew.Text = Text;
@@ -90,60 +90,72 @@ namespace DMProject.Game_Forms
                 };
                 try
                 {
-                            if (isPlayer == 0)
+                        Player playerPlus = DatabaseCongfigurations.GetPlayer(palyer.Username);
+                        if (isPlayer == 0 || isPlayer == 1)
+                        {
+                            if (playerPlus == null)
                             {
-                                Player playerPlus = DatabaseCongfigurations.GetPlayer(palyer.Username);
-                                if (playerPlus == null)
-                                {
-                                    int k = -1;
-                                    k = DatabaseCongfigurations.AddPlayer(palyer);
+                                int k = -1;
+                                k = DatabaseCongfigurations.AddPlayer(palyer);
 
-                                    if (k > 0)
-                                    {
-                                        if (isPlayer == 0)
-                                        {
-                                            HomePlay frm = new HomePlay();
-                                            frm.Tag = palyer.Username;
-                                            this.Hide();
-                                            frm.ShowDialog();
-                                            this.Close();
-                                        }
-                                        else
-                                        {
-                                            DialogResult res = MessageBox.Show("Player Has Inserted Do You Want To Insert Another One?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                                            if (res == DialogResult.Yes)
-                                            {
-                                                txtUsername.Text = "";
-                                                txtName.Text = "";
-                                                txtAge.Value = txtAge.Minimum;
-                                            }
-                                            else Close();
-                                        }
-                                    }
-
-                                }
-                                else
+                                if (k > 0)
                                 {
                                     if (isPlayer == 0)
                                     {
-                                        DialogResult res = MessageBox.Show("This Account Is Already Existed Do Youu Want To LogIn By It ?", "Account Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                                        if (res == DialogResult.Yes)
-                                        {
-                                            HomePlay frm = new HomePlay();
-                                            frm.Tag = palyer.Username;
-                                            this.Hide();
-                                            frm.ShowDialog();
-                                            this.Close();
-                                        }
+                                        HomePlay frm = new HomePlay();
+                                        frm.Tag = palyer.Username;
+                                        this.Hide();
+                                        frm.ShowDialog();
+                                        this.Close();
                                     }
                                     else
-                                        MessageBox.Show("This Account Is Already Existed", "Inf", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    {
+                                        DialogResult res = MessageBox.Show("Player Has Inserted Do You Want To Insert Another One?", "Inf", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                        if (res == DialogResult.Yes)
+                                        {
+                                            txtUsername.Text = "";
+                                            txtName.Text = "";
+                                            txtAge.Value = txtAge.Minimum;
+                                        }
+                                        else Close();
+                                    }
                                 }
+
                             }
-                            else if(isPlayer == 2)
+                            else
                             {
-                                //Here
+                                if (isPlayer == 0)
+                                {
+                                    DialogResult res = MessageBox.Show("This Account Is Already Existed Do Youu Want To LogIn By It ?", "Account Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                    if (res == DialogResult.Yes)
+                                    {
+                                        HomePlay frm = new HomePlay();
+                                        frm.Tag = palyer.Username;
+                                        this.Hide();
+                                        frm.ShowDialog();
+                                        this.Close();
+                                    }
+                                }
+                                else
+                                    MessageBox.Show("This Account Is Already Existed", "Inf", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
+                        }
+                        else if (isPlayer == 2)
+                        {
+                            if (playerPlus != null)
+                            {
+                                palyer.Score = playerPlus.Score;
+                                palyer.LastLogin = playerPlus.LastLogin;
+                                int res = DatabaseCongfigurations.UpdatePlayer(palyer);
+                                if (res > 0) MessageBox.Show("Player Has Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                else MessageBox.Show("Player Has Not Updated", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else 
+                            {
+                                MessageBox.Show("An Error Was Occured Whilt Updating The Player", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Close();
+                            };
+                        }
                 }
                 catch (Exception ex)
                 {

@@ -207,7 +207,7 @@ namespace DMProject.Game_Forms
             round.solvedQuestions = int.Parse(lblQuestionsCount.Text.Replace($"/ {maxQuestion}", ""));
             round.correct = correct;
             round.wrong = wrong;
-            round.timeConsumed = totalTime;
+            round.timeConsumed = totalTime.ToString();
             double d = Math.Round((double)correct / maxQuestion);
             round.Score = (int)Math.Round(((double)correct / maxQuestion) * 100);
             round.RoundDateTime = StartTime;
@@ -239,7 +239,6 @@ namespace DMProject.Game_Forms
             if (minuates < 0)
             {
                 timer1.Stop();
-                MessageBox.Show(totalTime.ToString());
                 string msg = correct > wrong ? "Great" : correct == wrong ? "Good" : "Falied";
                 MessageBox.Show($"Game End\nCorrect Answers Count: {correct}\nWrong Answers Count: {wrong}\n{msg}", "Time Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 this.Close();

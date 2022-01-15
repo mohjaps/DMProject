@@ -13,7 +13,7 @@ namespace DMProject.Models.Principles
         public int totalQuestions { get; set; }
         public int solvedQuestions { get; set; }
         public string selectedTables { get; set; }
-        public int timeConsumed { get; set; }
+        public string timeConsumed { get; set; }
         public int correct {get; set;}
         public int wrong {get; set;}
         public int Score { get; set; }

@@ -8,6 +8,7 @@ namespace DMProject.Models.View_Models
 {
     internal class RoundView
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int totalQuestions { get; set; }
         public string RoundScore { get; set; }

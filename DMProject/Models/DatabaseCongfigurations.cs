@@ -84,7 +84,6 @@ namespace DMProject.Models
         //Returns A Player
         public static Player GetPlayer(string username)
         {
-            
             string cmm = "Select Username, Name, Age, Score, LastLogin From Players Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@Username", username);
@@ -162,11 +161,13 @@ namespace DMProject.Models
         //Updates A Player
         public static int UpdatePlayer(Player player)
         {
-            string cmm = "Update Players Set Score = @Score, LastLogin = @LastLogin Where Username = @Username";
+            string cmm = "Update Players Set Score = @Score, LastLogin = @LastLogin, Name = @Name, Age = @Age Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@Username", player.Username);
             cmd.Parameters.AddWithValue("@Score", player.Score);
             cmd.Parameters.AddWithValue("@LastLogin", player.LastLogin);
+            cmd.Parameters.AddWithValue("@Name", player.Name);
+            cmd.Parameters.AddWithValue("@Age", player.Age);
             try
             {
                 conn.Open();
@@ -196,6 +197,83 @@ namespace DMProject.Models
             cmd.Parameters.AddWithValue("@wrong", round.wrong);
             cmd.Parameters.AddWithValue("@Score", round.Score);
             cmd.Parameters.AddWithValue("@RoundDateTime", round.RoundDateTime);
+            try
+            {
+                conn.Open();
+                int result = cmd.ExecuteNonQuery();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static Round GetRound(int id)
+        {
+            string cmm = "Select Id, PlayerUsername, totalQuestions, solvedQuestions, selectedTables, dbo.GetTokenTime(Id) as \"TimeConsumed\", correct, wrong, Score, RoundDateTime From Rounds Where Id = @Id";
+            SqlCommand cmd = new SqlCommand(cmm, conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleResult);
+                if (reader.Read())
+                {
+                    Round round = new Round()
+                    {
+                        Id = int.Parse(reader["Id"].ToString()), 
+                        PlayerUsername = reader["PlayerUsername"].ToString(), 
+                        totalQuestions = int.Parse(reader["totalQuestions"].ToString()), 
+                        solvedQuestions = int.Parse(reader["solvedQuestions"].ToString()), 
+                        selectedTables = reader["selectedTables"].ToString(), 
+                        timeConsumed = reader["TimeConsumed"].ToString(), 
+                        correct = int.Parse(reader["correct"].ToString()), 
+                        wrong = int.Parse(reader["wrong"].ToString()), 
+                        Score = int.Parse(reader["Score"].ToString()), 
+                        RoundDateTime = DateTime.Parse(reader["RoundDateTime"].ToString())
+                    };
+                    return round;
+                }
+                else return null;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static int DeleteRound(int Id)
+        {
+            string cmm = "Delete From Rounds Where Id = @Id";
+            SqlCommand cmd = new SqlCommand(cmm, conn);
+            cmd.Parameters.AddWithValue("@Id", Id);
+            try
+            {
+                conn.Open();
+                int result = cmd.ExecuteNonQuery();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static int DeletePlayerRounds(string PlayerUsername)
+        {
+            string cmm = "Delete From Rounds Where PlayerUsername = @PlayerUsername";
+            SqlCommand cmd = new SqlCommand(cmm, conn);
+            cmd.Parameters.AddWithValue("@PlayerUsername", PlayerUsername);
             try
             {
                 conn.Open();
@@ -244,9 +322,12 @@ namespace DMProject.Models
             {
                 conn.Open();
                 int result = -1;
-                SqlDataReader reader = sqlCommand.ExecuteReader();
+                SqlDataReader reader = sqlCommand.ExecuteReader(CommandBehavior.SingleResult);
                 if (reader.Read())
-                    result = int.Parse(reader["Sum"].ToString());
+                {
+                    var eresult = reader["Sum"].ToString();
+                    result = eresult.Length <= 0 ?  0 : int.Parse(eresult); 
+                }
                 return result;
             }
             catch (SqlException ex)
@@ -258,10 +339,9 @@ namespace DMProject.Models
                 conn.Close();
             }
         }
-        
         public static BindingList<RoundView> GetRoundView()
         {
-            string comm = "Select Name, \"Number Of Questions\", \"Round Score\", \"Total Time Consumed\", \"Round Time\"From ShowRounds";
+            string comm = "Select Id, Name, \"Number Of Questions\", \"Round Score\", \"Total Time Consumed\", \"Round Time\"From ShowRounds";
             SqlCommand sqlCommand = new SqlCommand(comm, conn);
             try
             {
@@ -272,6 +352,7 @@ namespace DMProject.Models
                 {
                     RoundView RV = new RoundView()
                     {
+                        Id = int.Parse(reader["Id"].ToString()),
                         Name = reader["Name"].ToString(),
                         totalQuestions = int.Parse(reader["Number Of Questions"].ToString()),
                         RoundScore = reader["Round Score"].ToString(),

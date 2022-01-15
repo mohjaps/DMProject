@@ -66,8 +66,7 @@ Create Table Rounds
 
 --Views
 --Create View ShowRounds As 
---Select Name, totalQuestions as "Number Of Questions", Concat('% ',Convert(VarChar(4), R.Score)) As "Round Score", dbo.GetTokenTime(R.Id) As "Total Time Consumed", RoundDateTime As "Round Time"
+--Select Id, Name, totalQuestions as "Number Of Questions", Concat('% ',Convert(VarChar(4), R.Score)) As "Round Score", dbo.GetTokenTime(R.Id) As "Total Time Consumed", RoundDateTime As "Round Time"
 --From Players P Join Rounds R 
 --On P.Username = R.PlayerUsername
-
 

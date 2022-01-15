@@ -96,6 +96,12 @@
     <Compile Include="Admin Forms\frmReporting.Designer.cs">
       <DependentUpon>frmReporting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin Forms\frmRoundsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Forms\frmRoundsDetails.Designer.cs">
+      <DependentUpon>frmRoundsDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin Forms\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin Forms\frmReporting.resx">
       <DependentUpon>frmReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Forms\frmRoundsDetails.resx">
+      <DependentUpon>frmRoundsDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
