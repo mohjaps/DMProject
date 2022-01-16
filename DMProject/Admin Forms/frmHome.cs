@@ -120,15 +120,31 @@ namespace DMProject
                 DisableButton();
                 lblTitle.Text = "Home";
                 Text = "Home - Admin";
+                try
+                {
+                    mainAdmin = DatabaseCongfigurations.GetAdmin(mainAdmin.Username);
+                    lblHello.Text = "Hello: " + (mainAdmin.FullName.Length > 0 ? mainAdmin.FullName : mainAdmin.Username);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void FormMainMenue_Load(object sender, EventArgs e)
         {
             Text = "Home - Admin";
-            mainAdmin = (Admin)Tag;
-            mainAdmin.FullName = "";
-            lblHello.Text = "Hello: " + (mainAdmin.FullName.Length > 0 ? mainAdmin.FullName : mainAdmin.Username);
+            try
+            {
+                mainAdmin = DatabaseCongfigurations.GetAdmin(((Admin)Tag).Username);
+                ;
+                lblHello.Text = "Hello: " + (mainAdmin.FullName.Length > 0 ? mainAdmin.FullName : mainAdmin.Username);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

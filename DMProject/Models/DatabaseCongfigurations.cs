@@ -21,7 +21,7 @@ namespace DMProject.Models
         //Returns An Admin
         public static Admin GetAdmin(string username)
         {
-            string cmm = "Select Username, Password From Admins Where Username = @Username";
+            string cmm = "Select FullName, Username, Password From Admins Where Username = @Username";
             SqlCommand cmd = new SqlCommand(cmm, conn);
             cmd.Parameters.AddWithValue("@Username", username);
             try
@@ -32,6 +32,7 @@ namespace DMProject.Models
                 {
                     Admin admin = new Admin()
                     {
+                        FullName = reader["FullName"].ToString(),
                         Username = reader["Username"].ToString(),
                         Password = reader["Password"].ToString()
                     };

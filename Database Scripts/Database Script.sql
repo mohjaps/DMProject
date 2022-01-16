@@ -1,4 +1,5 @@
 Create Database FinalProejct
+Drop Database FinalProejct
 Go 
 Use FinalProejct
 Create Table Admins
@@ -7,7 +8,7 @@ Create Table Admins
 	FullName VarChar(50) default '',
 	Password VarChar(50) Not Null,
 )
-
+Insert Into Admins (Username, Password) Values ('admin', 'admin');
 Create Table Players
 (
 	Username VarChar(50) Primary Key,

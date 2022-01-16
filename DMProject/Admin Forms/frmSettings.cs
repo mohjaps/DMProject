@@ -64,7 +64,7 @@ namespace DMProject.Forms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (txtCurrentName.Text.Length <= 0)
+            if (txtNewName.Text.Length <= 0)
             {
                 lblError2.Visible = true;
                 lblError2.Text = "Enter The New Name";
@@ -75,7 +75,7 @@ namespace DMProject.Forms
                 admin.FullName = txtNewName.Text;
                 DatabaseCongfigurations.UpdateAdminName(admin);
                 lblError2.Visible = true;
-                lblError.Text = "Name Updated Successfully";
+                lblError2.Text = "Name Updated Successfully";
                 txtNewName.Text = "";
             }
             catch (Exception ex)
