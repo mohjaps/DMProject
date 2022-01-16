@@ -53,13 +53,12 @@ namespace DMProject.Forms
             {
                 lblError.Text = ex.Message;
             }
-
         }
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
             admin = (Admin)Tag;
-            txtNewName.Text = admin.FullName;
+            txtCurrentName.Text = admin.FullName;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

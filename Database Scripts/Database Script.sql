@@ -1,5 +1,4 @@
 Create Database FinalProejct
-Drop Database FinalProejct
 Go 
 Use FinalProejct
 Create Table Admins
@@ -87,3 +86,4 @@ Select * From Players Where
 							Score <= @Score And
 							LastLogin <= @LastLogin
 End 
+

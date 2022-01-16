@@ -129,6 +129,7 @@
             this.btnChange.Size = new System.Drawing.Size(184, 48);
             this.btnChange.TabIndex = 22;
             this.btnChange.Text = "Change";
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // txtRetypePass
             // 

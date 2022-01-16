@@ -233,6 +233,16 @@ namespace DMProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo {
+            get {
+                object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap martin_katler_7KJdg5Hi6XM_unsplash {
             get {
                 object obj = ResourceManager.GetObject("martin-katler-7KJdg5Hi6XM-unsplash", resourceCulture);

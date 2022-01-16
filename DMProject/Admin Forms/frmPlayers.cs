@@ -157,6 +157,11 @@ namespace DMProject.Forms
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (guna2DataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No Dta In The Tables");
+                return;
+            }
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -176,5 +181,6 @@ namespace DMProject.Forms
                 }
             }
         }
+
     }
 }

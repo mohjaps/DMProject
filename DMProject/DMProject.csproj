@@ -242,6 +242,7 @@
     <None Include="Resources\value.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\startBg.jpg" />
     <None Include="Resources\next.png" />
     <None Include="Resources\previous..png" />
     <None Include="Resources\transparent.png" />
@@ -269,6 +270,7 @@
     <None Include="Resources\Lose.wav" />
     <None Include="Resources\startGame.mp3" />
     <Content Include="favicon.ico" />
+    <None Include="Resources\Logo.png" />
     <Content Include="Resources\martin-katler-7KJdg5Hi6XM-unsplash.jpg" />
   </ItemGroup>
   <ItemGroup>
