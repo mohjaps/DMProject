@@ -81,6 +81,7 @@
             this.txtId.Name = "txtId";
             this.txtId.PasswordChar = '\0';
             this.txtId.PlaceholderText = "";
+            this.txtId.ReadOnly = true;
             this.txtId.SelectedText = "";
             this.txtId.ShadowDecoration.Parent = this.txtId;
             this.txtId.Size = new System.Drawing.Size(437, 36);
@@ -104,6 +105,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderText = "";
+            this.txtUsername.ReadOnly = true;
             this.txtUsername.SelectedText = "";
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
             this.txtUsername.Size = new System.Drawing.Size(437, 36);
@@ -138,6 +140,7 @@
             this.txtTotalQuestions.Name = "txtTotalQuestions";
             this.txtTotalQuestions.PasswordChar = '\0';
             this.txtTotalQuestions.PlaceholderText = "";
+            this.txtTotalQuestions.ReadOnly = true;
             this.txtTotalQuestions.SelectedText = "";
             this.txtTotalQuestions.ShadowDecoration.Parent = this.txtTotalQuestions;
             this.txtTotalQuestions.Size = new System.Drawing.Size(437, 36);
@@ -172,6 +175,7 @@
             this.txtSolvedQuestions.Name = "txtSolvedQuestions";
             this.txtSolvedQuestions.PasswordChar = '\0';
             this.txtSolvedQuestions.PlaceholderText = "";
+            this.txtSolvedQuestions.ReadOnly = true;
             this.txtSolvedQuestions.SelectedText = "";
             this.txtSolvedQuestions.ShadowDecoration.Parent = this.txtSolvedQuestions;
             this.txtSolvedQuestions.Size = new System.Drawing.Size(437, 36);
@@ -206,6 +210,7 @@
             this.txtSelectedTables.Name = "txtSelectedTables";
             this.txtSelectedTables.PasswordChar = '\0';
             this.txtSelectedTables.PlaceholderText = "";
+            this.txtSelectedTables.ReadOnly = true;
             this.txtSelectedTables.SelectedText = "";
             this.txtSelectedTables.ShadowDecoration.Parent = this.txtSelectedTables;
             this.txtSelectedTables.Size = new System.Drawing.Size(437, 36);
@@ -240,6 +245,7 @@
             this.txtTimeConsumed.Name = "txtTimeConsumed";
             this.txtTimeConsumed.PasswordChar = '\0';
             this.txtTimeConsumed.PlaceholderText = "";
+            this.txtTimeConsumed.ReadOnly = true;
             this.txtTimeConsumed.SelectedText = "";
             this.txtTimeConsumed.ShadowDecoration.Parent = this.txtTimeConsumed;
             this.txtTimeConsumed.Size = new System.Drawing.Size(437, 36);
@@ -274,6 +280,7 @@
             this.txtCorrect.Name = "txtCorrect";
             this.txtCorrect.PasswordChar = '\0';
             this.txtCorrect.PlaceholderText = "";
+            this.txtCorrect.ReadOnly = true;
             this.txtCorrect.SelectedText = "";
             this.txtCorrect.ShadowDecoration.Parent = this.txtCorrect;
             this.txtCorrect.Size = new System.Drawing.Size(437, 36);
@@ -308,6 +315,7 @@
             this.txtWrong.Name = "txtWrong";
             this.txtWrong.PasswordChar = '\0';
             this.txtWrong.PlaceholderText = "";
+            this.txtWrong.ReadOnly = true;
             this.txtWrong.SelectedText = "";
             this.txtWrong.ShadowDecoration.Parent = this.txtWrong;
             this.txtWrong.Size = new System.Drawing.Size(437, 36);
@@ -342,6 +350,7 @@
             this.txtScore.Name = "txtScore";
             this.txtScore.PasswordChar = '\0';
             this.txtScore.PlaceholderText = "";
+            this.txtScore.ReadOnly = true;
             this.txtScore.SelectedText = "";
             this.txtScore.ShadowDecoration.Parent = this.txtScore;
             this.txtScore.Size = new System.Drawing.Size(437, 36);
@@ -376,6 +385,7 @@
             this.txtDateTime.Name = "txtDateTime";
             this.txtDateTime.PasswordChar = '\0';
             this.txtDateTime.PlaceholderText = "";
+            this.txtDateTime.ReadOnly = true;
             this.txtDateTime.SelectedText = "";
             this.txtDateTime.ShadowDecoration.Parent = this.txtDateTime;
             this.txtDateTime.Size = new System.Drawing.Size(437, 36);

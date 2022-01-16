@@ -25,6 +25,7 @@ namespace DMProject.Admin_Forms
             txtId.Text = round.Id.ToString();
             txtUsername.Text = round.PlayerUsername.ToString();
             txtTotalQuestions.Text = round.totalQuestions.ToString();
+            txtSolvedQuestions.Text = round.solvedQuestions.ToString();
             txtSelectedTables.Text = round.selectedTables.ToString();
             txtTimeConsumed.Text = round.timeConsumed.ToString();
             txtCorrect.Text = round.correct.ToString();

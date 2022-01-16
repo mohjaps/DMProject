@@ -65,16 +65,17 @@
             this.panelMenue.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelMenue.Location = new System.Drawing.Point(0, 0);
             this.panelMenue.Name = "panelMenue";
-            this.panelMenue.Size = new System.Drawing.Size(220, 592);
+            this.panelMenue.Size = new System.Drawing.Size(220, 527);
             this.panelMenue.TabIndex = 0;
             // 
             // btnBackHome
             // 
+            this.btnBackHome.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnBackHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBackHome.FillColor = System.Drawing.Color.Transparent;
             this.btnBackHome.Image = global::DMProject.Properties.Resources.Home;
             this.btnBackHome.ImageRotate = 0F;
-            this.btnBackHome.Location = new System.Drawing.Point(142, 530);
+            this.btnBackHome.Location = new System.Drawing.Point(142, 465);
             this.btnBackHome.Name = "btnBackHome";
             this.btnBackHome.ShadowDecoration.Parent = this.btnBackHome;
             this.btnBackHome.Size = new System.Drawing.Size(64, 50);
@@ -85,14 +86,15 @@
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.FillColor = System.Drawing.Color.Transparent;
             this.btnExit.Image = global::DMProject.Properties.Resources.Exit;
             this.btnExit.ImageRotate = 0F;
-            this.btnExit.Location = new System.Drawing.Point(18, 530);
+            this.btnExit.Location = new System.Drawing.Point(18, 465);
             this.btnExit.Name = "btnExit";
             this.btnExit.ShadowDecoration.Parent = this.btnExit;
-            this.btnExit.Size = new System.Drawing.Size(64, 50);
+            this.btnExit.Size = new System.Drawing.Size(41, 50);
             this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnExit.TabIndex = 23;
             this.btnExit.TabStop = false;
@@ -272,7 +274,7 @@
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 80);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1085, 512);
+            this.panelDesktop.Size = new System.Drawing.Size(1085, 447);
             this.panelDesktop.TabIndex = 2;
             // 
             // FormMainMenue
@@ -280,10 +282,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1305, 592);
+            this.ClientSize = new System.Drawing.Size(1305, 527);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBox);
             this.Controls.Add(this.panelMenue);
+            this.MinimumSize = new System.Drawing.Size(800, 570);
             this.Name = "FormMainMenue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

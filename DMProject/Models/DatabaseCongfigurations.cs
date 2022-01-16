@@ -339,14 +339,14 @@ namespace DMProject.Models
                 conn.Close();
             }
         }
-        public static BindingList<RoundView> GetRoundView()
+        public static List<RoundView> GetRoundView()
         {
             string comm = "Select Id, Name, \"Number Of Questions\", \"Round Score\", \"Total Time Consumed\", \"Round Time\"From ShowRounds";
             SqlCommand sqlCommand = new SqlCommand(comm, conn);
             try
             {
                 conn.Open();
-                BindingList<RoundView> result = new BindingList<RoundView>();
+                List<RoundView> result = new List<RoundView>();
                 SqlDataReader reader = sqlCommand.ExecuteReader();
                 while (reader.Read())
                 {

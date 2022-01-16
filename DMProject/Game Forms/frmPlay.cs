@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Media;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,13 @@ namespace DMProject.Game_Forms
 {
     public partial class frmPlay : Form
     {
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+
+
         List<int> baseTables = new List<int>(); // Gets Basic Table Number
         Random rnd = new Random(); // Get A Random Number From 0 To 'Determines Later'.
         List<string> questions = new List<string>(); // A List For questions That Solved.
@@ -214,7 +222,7 @@ namespace DMProject.Game_Forms
             round.PlayerUsername = username;
             round.selectedTables = string.Join(", ", baseTables);
             round.totalQuestions = maxQuestion;
-            round.solvedQuestions = int.Parse(lblQuestionsCount.Text.Replace($"/ {maxQuestion}", ""));
+            round.solvedQuestions = correct + wrong;
             round.correct = correct;
             round.wrong = wrong;
             round.timeConsumed = totalTime.ToString();
@@ -234,7 +242,6 @@ namespace DMProject.Game_Forms
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -248,6 +255,12 @@ namespace DMProject.Game_Forms
                 return;
             }
             timer1.Start();
+        }
+
+        private void guna2CustomGradientPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

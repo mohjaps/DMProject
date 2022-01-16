@@ -48,9 +48,9 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.office2019GrayTheme1 = new Telerik.WinControls.Themes.Office2019GrayTheme();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblSelectedTables = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnNext = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.lblSelectedTables = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnExit = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
@@ -372,6 +372,18 @@
             this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(823, 132);
             this.guna2CustomGradientPanel1.TabIndex = 26;
+            this.guna2CustomGradientPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2CustomGradientPanel1_MouseDown);
+            // 
+            // lblSelectedTables
+            // 
+            this.lblSelectedTables.BackColor = System.Drawing.Color.Transparent;
+            this.lblSelectedTables.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblSelectedTables.ForeColor = System.Drawing.Color.Blue;
+            this.lblSelectedTables.Location = new System.Drawing.Point(375, 93);
+            this.lblSelectedTables.Name = "lblSelectedTables";
+            this.lblSelectedTables.Size = new System.Drawing.Size(54, 26);
+            this.lblSelectedTables.TabIndex = 26;
+            this.lblSelectedTables.Text = "00:00";
             // 
             // guna2Button1
             // 
@@ -414,17 +426,6 @@
             this.btnNext.TabStop = false;
             this.btnNext.UseTransparentBackground = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // lblSelectedTables
-            // 
-            this.lblSelectedTables.BackColor = System.Drawing.Color.Transparent;
-            this.lblSelectedTables.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblSelectedTables.ForeColor = System.Drawing.Color.Blue;
-            this.lblSelectedTables.Location = new System.Drawing.Point(375, 93);
-            this.lblSelectedTables.Name = "lblSelectedTables";
-            this.lblSelectedTables.Size = new System.Drawing.Size(54, 26);
-            this.lblSelectedTables.TabIndex = 26;
-            this.lblSelectedTables.Text = "00:00";
             // 
             // btnExit
             // 
