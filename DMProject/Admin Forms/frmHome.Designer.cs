@@ -42,11 +42,13 @@
             this.panelTitleBox = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.lblHello = new System.Windows.Forms.Label();
             this.panelMenue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBackHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.panelLogo.SuspendLayout();
             this.panelTitleBox.SuspendLayout();
+            this.panelDesktop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenue
@@ -65,7 +67,7 @@
             this.panelMenue.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelMenue.Location = new System.Drawing.Point(0, 0);
             this.panelMenue.Name = "panelMenue";
-            this.panelMenue.Size = new System.Drawing.Size(220, 527);
+            this.panelMenue.Size = new System.Drawing.Size(220, 534);
             this.panelMenue.TabIndex = 0;
             // 
             // btnBackHome
@@ -75,7 +77,7 @@
             this.btnBackHome.FillColor = System.Drawing.Color.Transparent;
             this.btnBackHome.Image = global::DMProject.Properties.Resources.Home;
             this.btnBackHome.ImageRotate = 0F;
-            this.btnBackHome.Location = new System.Drawing.Point(142, 465);
+            this.btnBackHome.Location = new System.Drawing.Point(142, 472);
             this.btnBackHome.Name = "btnBackHome";
             this.btnBackHome.ShadowDecoration.Parent = this.btnBackHome;
             this.btnBackHome.Size = new System.Drawing.Size(64, 50);
@@ -91,7 +93,7 @@
             this.btnExit.FillColor = System.Drawing.Color.Transparent;
             this.btnExit.Image = global::DMProject.Properties.Resources.Exit;
             this.btnExit.ImageRotate = 0F;
-            this.btnExit.Location = new System.Drawing.Point(18, 465);
+            this.btnExit.Location = new System.Drawing.Point(18, 472);
             this.btnExit.Name = "btnExit";
             this.btnExit.ShadowDecoration.Parent = this.btnExit;
             this.btnExit.Size = new System.Drawing.Size(41, 50);
@@ -271,22 +273,34 @@
             // 
             // panelDesktop
             // 
+            this.panelDesktop.Controls.Add(this.lblHello);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 80);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1085, 447);
+            this.panelDesktop.Size = new System.Drawing.Size(1085, 454);
             this.panelDesktop.TabIndex = 2;
+            // 
+            // lblHello
+            // 
+            this.lblHello.AutoSize = true;
+            this.lblHello.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
+            this.lblHello.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lblHello.Location = new System.Drawing.Point(48, 42);
+            this.lblHello.Name = "lblHello";
+            this.lblHello.Size = new System.Drawing.Size(100, 38);
+            this.lblHello.TabIndex = 0;
+            this.lblHello.Text = "label2";
             // 
             // FormMainMenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1305, 527);
+            this.ClientSize = new System.Drawing.Size(1305, 534);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBox);
             this.Controls.Add(this.panelMenue);
-            this.MinimumSize = new System.Drawing.Size(800, 570);
+            this.MinimumSize = new System.Drawing.Size(873, 581);
             this.Name = "FormMainMenue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -298,6 +312,8 @@
             this.panelLogo.PerformLayout();
             this.panelTitleBox.ResumeLayout(false);
             this.panelTitleBox.PerformLayout();
+            this.panelDesktop.ResumeLayout(false);
+            this.panelDesktop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -318,6 +334,7 @@
         private System.Windows.Forms.Panel panelDesktop;
         private Guna.UI2.WinForms.Guna2PictureBox btnExit;
         private Guna.UI2.WinForms.Guna2PictureBox btnBackHome;
+        private System.Windows.Forms.Label lblHello;
     }
 }
 

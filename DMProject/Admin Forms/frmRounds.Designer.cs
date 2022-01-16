@@ -46,6 +46,8 @@
             this.btnPrev = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnFirst = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnExport = new Guna.UI2.WinForms.Guna2Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).BeginInit();
@@ -97,7 +99,7 @@
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 26;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(800, 365);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1019, 365);
             this.guna2DataGridView1.TabIndex = 0;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -166,7 +168,7 @@
             this.txtPageNumber.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPageNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPageNumber.HoverState.Parent = this.txtPageNumber;
-            this.txtPageNumber.Location = new System.Drawing.Point(451, 30);
+            this.txtPageNumber.Location = new System.Drawing.Point(670, 30);
             this.txtPageNumber.Name = "txtPageNumber";
             this.txtPageNumber.PasswordChar = '\0';
             this.txtPageNumber.PlaceholderText = "";
@@ -191,7 +193,7 @@
             this.txtTotalPages.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTotalPages.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTotalPages.HoverState.Parent = this.txtTotalPages;
-            this.txtTotalPages.Location = new System.Drawing.Point(546, 30);
+            this.txtTotalPages.Location = new System.Drawing.Point(765, 30);
             this.txtTotalPages.Name = "txtTotalPages";
             this.txtTotalPages.PasswordChar = '\0';
             this.txtTotalPages.PlaceholderText = "";
@@ -206,7 +208,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label1.Location = new System.Drawing.Point(507, 44);
+            this.label1.Location = new System.Drawing.Point(726, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 18);
             this.label1.TabIndex = 8;
@@ -217,7 +219,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 12F);
-            this.label2.Location = new System.Drawing.Point(601, 39);
+            this.label2.Location = new System.Drawing.Point(820, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 25);
             this.label2.TabIndex = 9;
@@ -232,7 +234,12 @@
             this.guna2NumericUpDown1.FocusedState.Parent = this.guna2NumericUpDown1;
             this.guna2NumericUpDown1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2NumericUpDown1.ForeColor = System.Drawing.Color.Black;
-            this.guna2NumericUpDown1.Location = new System.Drawing.Point(694, 34);
+            this.guna2NumericUpDown1.Location = new System.Drawing.Point(913, 34);
+            this.guna2NumericUpDown1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.guna2NumericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -316,6 +323,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.btnExport);
             this.guna2Panel1.Controls.Add(this.btnFirst);
             this.guna2Panel1.Controls.Add(this.btnPrev);
             this.guna2Panel1.Controls.Add(this.guna2NumericUpDown1);
@@ -329,14 +337,35 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 371);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(800, 79);
+            this.guna2Panel1.Size = new System.Drawing.Size(1019, 79);
             this.guna2Panel1.TabIndex = 11;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExport.CheckedState.Parent = this.btnExport;
+            this.btnExport.CustomImages.Parent = this.btnExport;
+            this.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExport.DisabledState.Parent = this.btnExport;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.HoverState.Parent = this.btnExport;
+            this.btnExport.Location = new System.Drawing.Point(448, 19);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.ShadowDecoration.Parent = this.btnExport;
+            this.btnExport.Size = new System.Drawing.Size(184, 48);
+            this.btnExport.TabIndex = 14;
+            this.btnExport.Text = "Export Rounds";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // frmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1019, 450);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2DataGridView1);
             this.Name = "frmOrders";
@@ -371,5 +400,7 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Button btnExport;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

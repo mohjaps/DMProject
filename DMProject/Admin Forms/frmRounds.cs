@@ -1,4 +1,5 @@
-﻿using DMProject.Admin_Forms;
+﻿using CsvHelper;
+using DMProject.Admin_Forms;
 using DMProject.Models;
 using DMProject.Models.Principles;
 using DMProject.Models.View_Models;
@@ -7,6 +8,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -160,6 +163,26 @@ namespace DMProject.Forms
             {
                 pageNumber = totalPages;
                 getPagination(pageNumber, pageSize);
+            }
+        }
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string path = folderBrowserDialog1.SelectedPath + $"\\Rounds-{DateTime.Now.ToString().Replace("/", "_").Replace(":", "_")}.csv";
+                    using (var writer = new StreamWriter(path, false, Encoding.UTF8))
+                    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                    {
+                        csv.WriteRecords((List<RoundView>)guna2DataGridView1.DataSource);
+                    }
+                    MessageBox.Show($"File Has Saved In {path}", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

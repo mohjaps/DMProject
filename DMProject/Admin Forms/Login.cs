@@ -52,7 +52,9 @@ namespace DMProject.Game_Forms
                     if (txtPassword.Text.Trim() == admin.Password)
                     {
                         this.Hide();
-                        new FormMainMenue().ShowDialog();
+                        FormMainMenue fMM = new FormMainMenue();
+                        fMM.Tag = admin;
+                        fMM.ShowDialog();
                         this.Show();
                     }
                     else MessageBox.Show("Password Is Wrong...", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);

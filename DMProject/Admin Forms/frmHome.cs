@@ -1,4 +1,6 @@
-﻿using DMProject.Models;
+﻿using DMProject.Forms;
+using DMProject.Models;
+using DMProject.Models.Principles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +19,7 @@ namespace DMProject
         private Random random;
         private int tempIndex;
         private Form activeForm;
+        private Admin mainAdmin = null;
         public FormMainMenue()
         {
             InitializeComponent();
@@ -101,14 +104,14 @@ namespace DMProject
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.frmSettings(), sender);
+            frmSettings frmS = new frmSettings();
+            frmS.Tag = mainAdmin;
+            OpenChildForm(frmS, sender);
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void btnBackHome_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
@@ -123,6 +126,9 @@ namespace DMProject
         private void FormMainMenue_Load(object sender, EventArgs e)
         {
             Text = "Home - Admin";
+            mainAdmin = (Admin)Tag;
+            mainAdmin.FullName = "";
+            lblHello.Text = "Hello: " + (mainAdmin.FullName.Length > 0 ? mainAdmin.FullName : mainAdmin.Username);
         }
     }
 }

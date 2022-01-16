@@ -372,5 +372,85 @@ namespace DMProject.Models
                 conn.Close();
             }
         }
+        // Filtering 
+        public static BindingList<Player> FilteringPlayers(Player player)
+        {
+            SqlCommand cmd = new SqlCommand("FiteringPlayers", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Username", player.Username);
+            cmd.Parameters.AddWithValue("@Name", player.Name);
+            cmd.Parameters.AddWithValue("@Age", player.Age);
+            cmd.Parameters.AddWithValue("@Score", player.Score);
+            cmd.Parameters.AddWithValue("@LastLogin", player.LastLogin);
+            try
+            {
+                conn.Open();
+                BindingList<Player> Players = new BindingList<Player>();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.Default);
+                while (reader.Read())
+                {
+                    Player ply = new Player()
+                    {
+                        Username = reader["Username"].ToString(),
+                        Name = reader["Name"].ToString(),
+                        Age = int.Parse(reader["Age"].ToString()),
+                        Score = int.Parse(reader["Score"].ToString()),
+                        LastLogin = DateTime.Parse(reader["LastLogin"].ToString()),
+                    };
+                    Players.Add(ply);
+                }
+                return Players;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static int UpdateAdminPassword(Admin admin)
+        {
+            string cmm = "Update Admins Set Password = @Password Where Username = @Username";
+            SqlCommand cmd = new SqlCommand(cmm, conn);
+            cmd.Parameters.AddWithValue("@Username", admin.Username);
+            cmd.Parameters.AddWithValue("@Password", admin.Password);
+            try
+            {
+                conn.Open();
+                int result = cmd.ExecuteNonQuery();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static int UpdateAdminName(Admin admin)
+        {
+            string cmm = "Update Admins Set FullName = @FullName Where Username = @Username";
+            SqlCommand cmd = new SqlCommand(cmm, conn);
+            cmd.Parameters.AddWithValue("@Username", admin.Username);
+            cmd.Parameters.AddWithValue("@FullName", admin.FullName);
+            try
+            {
+                conn.Open();
+                int result = cmd.ExecuteNonQuery();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

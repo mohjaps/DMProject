@@ -1,4 +1,6 @@
-﻿using DMProject.Game_Forms;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using DMProject.Game_Forms;
 using DMProject.Models;
 using DMProject.Models.Principles;
 using System;
@@ -6,6 +8,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +25,7 @@ namespace DMProject.Forms
         }
         private void frmProducts_Load(object sender, EventArgs e)
         {
+            txtDate.Value = DateTime.Now;
             try
             {
                 guna2DataGridView1.DataSource = DatabaseCongfigurations.GetPlayers();
@@ -112,6 +117,63 @@ namespace DMProject.Forms
             else
             {
                 MessageBox.Show("You Have To Select One Row At Least", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void v_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtUsername.Text = "";
+                txtName.Text = "";
+                txtAge.Value = 15;
+                txtScore.Value = 100;
+                txtDate.Value = DateTime.Now;
+                guna2DataGridView1.DataSource = DatabaseCongfigurations.GetPlayers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            Player player = new Player();
+            player.Username = txtUsername.Text.Trim().ToLower().Length > 0 ? txtUsername.Text.Trim().ToLower() : "";
+            player.Name = txtName.Text.Trim().ToLower().Length>0 ? txtName.Text.Trim().ToLower() : "";
+            player.Age = (int)txtAge.Value;
+            player.Score = (int)txtScore.Value;
+            player.LastLogin = txtDate.Value;
+            try
+            {
+                guna2DataGridView1.DataSource = DatabaseCongfigurations.FilteringPlayers(player);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string path = folderBrowserDialog1.SelectedPath + $"\\Players-{DateTime.Now.ToString().Replace("/", "_").Replace(":", "_")}.csv";
+                    using (var writer = new StreamWriter(path, false, Encoding.UTF8))
+                    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                    {
+                        csv.WriteRecords((BindingList<Player>)guna2DataGridView1.DataSource);
+                    }
+                    MessageBox.Show($"File Has Saved In {path}", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
         }
     }
