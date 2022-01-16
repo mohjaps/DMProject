@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerLogin));
             this.radioBtnNew = new Guna.UI2.WinForms.Guna2RadioButton();
             this.radioBtnExixtedPlayer = new Guna.UI2.WinForms.Guna2RadioButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -323,6 +324,7 @@
             this.Controls.Add(this.radioBtnExixtedPlayer);
             this.Controls.Add(this.radioBtnNew);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PlayerLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayerLogin";

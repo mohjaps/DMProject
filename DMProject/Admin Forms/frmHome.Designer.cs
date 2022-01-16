@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenue));
             this.panelMenue = new System.Windows.Forms.Panel();
             this.btnBackHome = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnExit = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -231,6 +232,7 @@
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBox);
             this.Controls.Add(this.panelMenue);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(873, 581);
             this.Name = "FormMainMenue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -90,18 +90,6 @@ namespace DMProject
         {
             OpenChildForm(new Forms.frmOrders(), sender);
         }
-        private void btnCustomer_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Forms.frmCustomer(), sender);
-        }
-        private void btnReporting_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Forms.frmReporting(), sender);
-        }
-        private void btnNotifications_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Forms.frmNotifications(), sender);
-        }
         private void btnSettings_Click(object sender, EventArgs e)
         {
             frmSettings frmS = new frmSettings();

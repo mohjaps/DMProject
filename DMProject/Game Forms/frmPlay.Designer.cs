@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlay));
             this.btnFirst = new Guna.UI2.WinForms.Guna2Button();
             this.btnOperation = new Guna.UI2.WinForms.Guna2Button();
             this.btnSecond = new Guna.UI2.WinForms.Guna2Button();
@@ -462,6 +463,7 @@
             this.Controls.Add(this.btnOperation);
             this.Controls.Add(this.btnFirst);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPlay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPlay";

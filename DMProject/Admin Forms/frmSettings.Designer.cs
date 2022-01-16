@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblError = new System.Windows.Forms.Label();
             this.btnChange = new Guna.UI2.WinForms.Guna2Button();
             this.txtRetypePass = new Guna.UI2.WinForms.Guna2TextBox();
@@ -39,12 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCurrentPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtCurrentName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblError2 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.txtNewName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtCurrentName = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -97,22 +98,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Change Password";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.txtCurrentName);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.lblError2);
-            this.tabPage2.Controls.Add(this.guna2Button1);
-            this.tabPage2.Controls.Add(this.txtNewName);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Location = new System.Drawing.Point(184, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(612, 442);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Change Name";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // lblError
             // 
@@ -247,6 +232,57 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Current Password";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.txtCurrentName);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.lblError2);
+            this.tabPage2.Controls.Add(this.guna2Button1);
+            this.tabPage2.Controls.Add(this.txtNewName);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Location = new System.Drawing.Point(184, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(612, 442);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Change Name";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtCurrentName
+            // 
+            this.txtCurrentName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCurrentName.DefaultText = "";
+            this.txtCurrentName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCurrentName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCurrentName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCurrentName.DisabledState.Parent = this.txtCurrentName;
+            this.txtCurrentName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCurrentName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCurrentName.FocusedState.Parent = this.txtCurrentName;
+            this.txtCurrentName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCurrentName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCurrentName.HoverState.Parent = this.txtCurrentName;
+            this.txtCurrentName.Location = new System.Drawing.Point(252, 63);
+            this.txtCurrentName.Name = "txtCurrentName";
+            this.txtCurrentName.PasswordChar = '\0';
+            this.txtCurrentName.PlaceholderText = "";
+            this.txtCurrentName.ReadOnly = true;
+            this.txtCurrentName.SelectedText = "";
+            this.txtCurrentName.ShadowDecoration.Parent = this.txtCurrentName;
+            this.txtCurrentName.Size = new System.Drawing.Size(275, 36);
+            this.txtCurrentName.TabIndex = 29;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 12F);
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(58, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 25);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Current Name";
+            // 
             // lblError2
             // 
             this.lblError2.AutoSize = true;
@@ -313,47 +349,13 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "New Name";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 12F);
-            this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(58, 74);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 25);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Current Name";
-            // 
-            // txtCurrentName
-            // 
-            this.txtCurrentName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCurrentName.DefaultText = "";
-            this.txtCurrentName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCurrentName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCurrentName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCurrentName.DisabledState.Parent = this.txtCurrentName;
-            this.txtCurrentName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCurrentName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCurrentName.FocusedState.Parent = this.txtCurrentName;
-            this.txtCurrentName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCurrentName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCurrentName.HoverState.Parent = this.txtCurrentName;
-            this.txtCurrentName.Location = new System.Drawing.Point(252, 63);
-            this.txtCurrentName.Name = "txtCurrentName";
-            this.txtCurrentName.PasswordChar = '\0';
-            this.txtCurrentName.PlaceholderText = "";
-            this.txtCurrentName.ReadOnly = true;
-            this.txtCurrentName.SelectedText = "";
-            this.txtCurrentName.ShadowDecoration.Parent = this.txtCurrentName;
-            this.txtCurrentName.Size = new System.Drawing.Size(275, 36);
-            this.txtCurrentName.TabIndex = 29;
-            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2TabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSettings";
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.frmSettings_Load);

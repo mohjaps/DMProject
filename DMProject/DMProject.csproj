@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
@@ -95,18 +98,6 @@
     <Compile Include="Admin Forms\frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin Forms\frmCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin Forms\frmCustomer.Designer.cs">
-      <DependentUpon>frmCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin Forms\frmNotifications.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin Forms\frmNotifications.Designer.cs">
-      <DependentUpon>frmNotifications.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin Forms\frmRounds.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,12 +109,6 @@
     </Compile>
     <Compile Include="Admin Forms\frmPlayers.Designer.cs">
       <DependentUpon>frmPlayers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin Forms\frmReporting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin Forms\frmReporting.Designer.cs">
-      <DependentUpon>frmReporting.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin Forms\frmRoundsDetails.cs">
       <SubType>Form</SubType>
@@ -180,20 +165,11 @@
     <EmbeddedResource Include="Admin Forms\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin Forms\frmCustomer.resx">
-      <DependentUpon>frmCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin Forms\frmNotifications.resx">
-      <DependentUpon>frmNotifications.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin Forms\frmRounds.resx">
       <DependentUpon>frmRounds.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin Forms\frmPlayers.resx">
       <DependentUpon>frmPlayers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin Forms\frmReporting.resx">
-      <DependentUpon>frmReporting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin Forms\frmRoundsDetails.resx">
       <DependentUpon>frmRoundsDetails.cs</DependentUpon>
@@ -292,6 +268,7 @@
     <None Include="Resources\Correct.wav" />
     <None Include="Resources\Lose.wav" />
     <None Include="Resources\startGame.mp3" />
+    <Content Include="favicon.ico" />
     <Content Include="Resources\martin-katler-7KJdg5Hi6XM-unsplash.jpg" />
   </ItemGroup>
   <ItemGroup>
