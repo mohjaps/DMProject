@@ -51,11 +51,13 @@ namespace DMProject.Game_Forms
                 if (btns is Button && !btns.Name.Contains("btnGo") && ((Button)btns).FlatStyle == FlatStyle.Flat)
                     ints.Add(int.Parse(btns.Text));
             }
-            List<int> questionNums = new List<int>() { 0};
+            List<int> questionNums = new List<int>() { };
             numOfQuestions = ints.Count() * 11 * 2;
             for (int j = 0; j < numOfQuestions; j++)
                 questionNums.Add(j+1);
             guna2ComboBox1.DataSource = questionNums;
+            guna2ComboBox1.Text = "5";
+            
         }
 
         private void btnGo_Click(object sender, EventArgs e)

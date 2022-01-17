@@ -119,10 +119,17 @@ namespace DMProject.Forms
         }
         private void guna2DataGridView1_DataSourceChanged(object sender, EventArgs e)
         {
-            if (pageNumber <= 1)
+            if (pageNumber == 1)
             {
                 btnLast.Visible = true;
                 btnNext.Visible = true;
+                btnFirst.Visible = false;
+                btnPrev.Visible = false;
+            }
+            if (pageNumber <= 0)
+            {
+                btnLast.Visible = false;
+                btnNext.Visible = false;
                 btnFirst.Visible = false;
                 btnPrev.Visible = false;
             }
@@ -189,6 +196,11 @@ namespace DMProject.Forms
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
