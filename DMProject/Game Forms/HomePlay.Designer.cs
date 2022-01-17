@@ -45,8 +45,10 @@
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotalRounds = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnExit = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnGo = new Guna.UI2.WinForms.Guna2PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGo)).BeginInit();
             this.SuspendLayout();
@@ -252,6 +254,22 @@
             this.lblTotalRounds.Size = new System.Drawing.Size(140, 24);
             this.lblTotalRounds.TabIndex = 20;
             this.lblTotalRounds.Text = "Total Rounds: ";
+            this.lblTotalRounds.Click += new System.EventHandler(this.lblTotalRounds_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::DMProject.Properties.Resources.Details;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(737, 12);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(64, 50);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 23;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // btnExit
             // 
@@ -289,6 +307,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(823, 710);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.lblTotalRounds);
@@ -313,6 +332,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choose A Table ...";
             this.Load += new System.EventHandler(this.HomePlay_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGo)).EndInit();
             this.ResumeLayout(false);
@@ -339,5 +359,6 @@
         private System.Windows.Forms.Label lblTotalRounds;
         private Guna.UI2.WinForms.Guna2PictureBox btnGo;
         private Guna.UI2.WinForms.Guna2PictureBox btnExit;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

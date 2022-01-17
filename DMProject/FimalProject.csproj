@@ -152,12 +152,6 @@
     <Compile Include="Game Forms\Start.Designer.cs">
       <DependentUpon>Start.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game Forms\userDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Game Forms\userDetails.Designer.cs">
-      <DependentUpon>userDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\DatabaseCongfigurations.cs" />
     <Compile Include="Models\Principles\Round.cs" />
     <Compile Include="Models\Principles\Player.cs" />
@@ -197,9 +191,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Game Forms\Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Game Forms\userDetails.resx">
-      <DependentUpon>userDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -373,6 +373,38 @@ namespace DMProject.Models
                 conn.Close();
             }
         }
+        public static List<RoundView> GetRoundViewByUsername(string PlayerUsername)
+        {
+            string comm = "Select \"Number Of Questions\", \"Round Score\", \"Total Time Consumed\", \"Round Time\"From ShowRounds Where PlayerUsername = @PlayerUsername";
+            SqlCommand sqlCommand = new SqlCommand(comm, conn);
+            sqlCommand.Parameters.AddWithValue("@PlayerUsername", PlayerUsername);
+            try
+            {
+                conn.Open();
+                List<RoundView> result = new List<RoundView>();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    RoundView RV = new RoundView()
+                    {
+                        totalQuestions = int.Parse(reader["Number Of Questions"].ToString()),
+                        RoundScore = reader["Round Score"].ToString(),
+                        TotalTimeConsumed = reader["Total Time Consumed"].ToString(),
+                        RoundDateTime = DateTime.Parse(reader["Round Time"].ToString()),
+                    };
+                    result.Add(RV);
+                }
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         // Filtering 
         public static BindingList<Player> FilteringPlayers(Player player)
         {

@@ -130,5 +130,18 @@ namespace DMProject.Game_Forms
         {
             Close();
         }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+            userDetails UD = new userDetails();
+            UD.Tag = player;
+            UD.ShowDialog();
+        }
+
+        private void lblTotalRounds_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
