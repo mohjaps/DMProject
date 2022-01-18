@@ -46,7 +46,7 @@ namespace DMProject.Game_Forms
 
         private void Start_Load(object sender, EventArgs e)
         {
-            MP.URL = "Sounds/startGame.mp3";
+            MP.URL = AppDomain.CurrentDomain.BaseDirectory + "Sounds/startGame.mp3";
             MP.controls.play();
         }
     }

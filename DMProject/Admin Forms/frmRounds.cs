@@ -119,14 +119,14 @@ namespace DMProject.Forms
         }
         private void guna2DataGridView1_DataSourceChanged(object sender, EventArgs e)
         {
-            if (pageNumber == 1)
+            if (pageNumber == 1 && totalPages > 1)
             {
                 btnLast.Visible = true;
                 btnNext.Visible = true;
                 btnFirst.Visible = false;
                 btnPrev.Visible = false;
             }
-            if (pageNumber <= 0)
+            else if (pageNumber <= 0 || totalPages <=1)
             {
                 btnLast.Visible = false;
                 btnNext.Visible = false;
