@@ -176,14 +176,14 @@ namespace DMProject.Game_Forms
                 bool isCorrect = (btnAnswer.Text == answerKey.ToString());
                 if (isCorrect)
                 {
-                    SP.SoundLocation = "Sounds/Correct.wav";
+                    SP.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "Sounds/Correct.wav";
                     SP.Play();
                     MessageBox.Show("Answer Is Correct", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     correct++;
                 }
                 else
                 {
-                    SP.SoundLocation = "Sounds/Lose.wav";
+                    SP.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "Sounds/Lose.wav";
                     SP.Play();
                     MessageBox.Show("Answer Is Wrong", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     wrong++;
